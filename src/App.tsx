@@ -289,15 +289,15 @@ function App() {
             {/* SEZIONE CONTATTI CORRETTA */}
             <div className="space-y-8 text-lg mb-12">
               <div className="flex items-center justify-center gap-4">
-                <MapPin className="w-6 h-6 text-gold flex-shrink-0" />
+                <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
-                  <p className="font-cinzel text-gold">TEATRO PETROLINI</p>
-                  <p className="text-white">Via Rubattino 5, Roma (Testaccio)</p>
+                  <p className="font-cinzel text-gold">LOCATION</p>
+                  <p className="text-white">Teatro Petrolini - Via Rubattino 5, Roma (Testaccio)</p>
                   <a
                     href="https://maps.google.com/?q=Teatro+Petrolini+Via+Rubattino+5+Roma"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-porpora hover:text-gold transition-colors underline text-sm"
+                    className="text-porpora hover:text-gold transition-colors underline text-base"
                   >
                     Visualizza su Google Maps
                   </a>
@@ -307,7 +307,7 @@ function App() {
               <div className="flex items-center justify-center gap-4">
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0" />
                 <div className="text-left">
-                  <p className="font-cinzel text-gold">Pagina Ufficiale:</p>
+                  <p className="font-cinzel text-gold">PAGINA UFFICIALE:</p>
                   <a
                     href="https://www.instagram.com/excelsiorburlesquefestival"
                     target="_blank"
@@ -337,7 +337,7 @@ function App() {
               <div className="flex items-center justify-center gap-4">
                 <Mail className="w-6 h-6 text-gold flex-shrink-0" />
                 <div className="text-left">
-                  <p className="font-cinzel text-gold">Email:</p>
+                  <p className="font-cinzel text-gold">EMAIL:</p>
                   <a
                     href="mailto:excelsiorburlesquefestival@gmail.com"
                     className="text-white hover:text-porpora transition-colors"
