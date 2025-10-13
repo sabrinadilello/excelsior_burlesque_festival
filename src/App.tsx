@@ -291,7 +291,7 @@ function App() {
               <div className="flex items-center justify-center gap-4">
                 <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
-                  <p className="font-cinzel text-gold">LOCATION</p>
+                  <p className="font-cinzel text-gold">LOCATION:</p>
                   <p className="text-white">Teatro Petrolini - Via Rubattino 5, Roma (Testaccio)</p>
                   <a
                     href="https://maps.google.com/?q=Teatro+Petrolini+Via+Rubattino+5+Roma"
@@ -305,7 +305,7 @@ function App() {
               </div>
 
               <div className="flex items-center justify-center gap-4">
-                <Instagram className="w-6 h-6 text-gold flex-shrink-0" />
+                <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">PAGINA UFFICIALE:</p>
                   <a
@@ -320,7 +320,7 @@ function App() {
               </div>
 
               <div className="flex items-center justify-center gap-4">
-                <Instagram className="w-6 h-6 text-gold flex-shrink-0" />
+                <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">Direzione Artistica:</p>
                   <a
@@ -335,7 +335,7 @@ function App() {
               </div>
 
               <div className="flex items-center justify-center gap-4">
-                <Mail className="w-6 h-6 text-gold flex-shrink-0" />
+                <Mail className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">EMAIL:</p>
                   <a
