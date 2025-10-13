@@ -287,11 +287,11 @@ function App() {
             </h2>
 
             <div className="space-y-8 text-lg mb-12">
-              <div className="flex items-center justify-center gap-3">
-                <MapPin className="w-6 h-6 text-gold" />
-                <div>
+              <div className="flex items-center justify-center gap-4">
+                <MapPin className="w-6 h-6 text-gold flex-shrink-0" />
+                <div className="text-left">
                   <p className="font-cinzel text-gold">Teatro Petrolini</p>
-                  <p>Via Rubattino 5, Roma (Testaccio)</p>
+                  <p className="text-white">Via Rubattino 5, Roma (Testaccio)</p>
                   <a
                     href="https://maps.google.com/?q=Teatro+Petrolini+Via+Rubattino+5+Roma"
                     target="_blank"
@@ -303,43 +303,44 @@ function App() {
                 </div>
               </div>
 
-              {/* --- BLOCCO CONTATTI MODIFICATO --- */}
-              <div className="flex items-center justify-center gap-3">
-                <Instagram className="w-6 h-6 text-gold" />
-                <div>
-                  <p className="text-sm text-gold/80">Pagina Ufficiale:</p>
+
+              <div className="flex items-center justify-center gap-4">
+                <Instagram className="w-6 h-6 text-gold flex-shrink-0" />
+                <div  className="text-left">
+                  <p className="font-cinzel text-gold">Pagina Ufficiale:</p>
                   <a
                     href="https://www.instagram.com/excelsiorburlesquefestival"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gold hover:text-porpora transition-colors"
+                    className="text-white hover:text-porpora transition-colors"
                   >
                     @excelsior_burlesque_festival
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center justify-center gap-3">
-                <Instagram className="w-6 h-6 text-gold" />
-                <div>
-                  <p className="text-sm text-gold/80">Direzione Artistica:</p>
+              <div className="flex items-center justify-center gap-4">
+                <Instagram className="w-6 h-6 text-gold flex-shrink-0" />
+                <div className="text-left">
+                  <p className="font-cinzel text-gold">Direzione Artistica:</p>
                   <a
-                    href="https://www.instagram.com/matisse_royale" // URL CORRETTO
+                    href="https://www.instagram.com/matisse_royale" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gold hover:text-porpora transition-colors"
+                    className="text-white hover:text-porpora transition-colors"
                   >
                     @matisse_royale
                   </a>
                 </div>
               </div>
-              {/* --- FINE BLOCCO MODIFICATO --- */}
 
-              <div className="flex items-center justify-center gap-3">
-                <Mail className="w-6 h-6 text-gold" />
+              <div className="flex items-center justify-center gap-4">
+                <Mail className="w-6 h-6 text-gold flex-shrink-0" />
+                <div className="text-left">
+                <p className="font-cinzel text-gold">Email:</p>
                 <a
                   href="mailto:excelsiorburlesquefestival@gmail.com" // Corretto .it con .com
-                  className="text-gold hover:text-porpora transition-colors"
+                  className="text-white hover:text-porpora transition-colors"
                 >
                   excelsiorburlesquefestival@gmail.com
                 </a>
