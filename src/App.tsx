@@ -286,11 +286,12 @@ function App() {
               INFORMAZIONI E CONTATTI
             </h2>
 
+            {/* SEZIONE CONTATTI CORRETTA */}
             <div className="space-y-8 text-lg mb-12">
               <div className="flex items-center justify-center gap-4">
                 <MapPin className="w-6 h-6 text-gold flex-shrink-0" />
                 <div className="text-left">
-                  <p className="font-cinzel text-gold">Teatro Petrolini</p>
+                  <p className="font-cinzel text-gold">TEATRO PETROLINI</p>
                   <p className="text-white">Via Rubattino 5, Roma (Testaccio)</p>
                   <a
                     href="https://maps.google.com/?q=Teatro+Petrolini+Via+Rubattino+5+Roma"
@@ -303,10 +304,9 @@ function App() {
                 </div>
               </div>
 
-
               <div className="flex items-center justify-center gap-4">
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0" />
-                <div  className="text-left">
+                <div className="text-left">
                   <p className="font-cinzel text-gold">Pagina Ufficiale:</p>
                   <a
                     href="https://www.instagram.com/excelsiorburlesquefestival"
@@ -337,15 +337,17 @@ function App() {
               <div className="flex items-center justify-center gap-4">
                 <Mail className="w-6 h-6 text-gold flex-shrink-0" />
                 <div className="text-left">
-                <p className="font-cinzel text-gold">Email:</p>
-                <a
-                  href="mailto:excelsiorburlesquefestival@gmail.com" // Corretto .it con .com
-                  className="text-white hover:text-porpora transition-colors"
-                >
-                  excelsiorburlesquefestival@gmail.com
-                </a>
+                  <p className="font-cinzel text-gold">Email:</p>
+                  <a
+                    href="mailto:excelsiorburlesquefestival@gmail.com"
+                    className="text-white hover:text-porpora transition-colors"
+                  >
+                    excelsiorburlesquefestival@gmail.com
+                  </a>
+                </div>
               </div>
             </div>
+            {/* FINE SEZIONE CONTATTI CORRETTA */}
 
             <div className="border-t border-gold pt-8">
               <p className="text-gold/70 text-sm">
