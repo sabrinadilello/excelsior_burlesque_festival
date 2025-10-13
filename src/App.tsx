@@ -53,12 +53,10 @@ function App() {
       {/* Page 1 - Home */}
       {currentPage === 1 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12 relative overflow-hidden">
-          {/* Decorative Elements */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-10 left-10 w-32 h-32 border border-gold rounded-full" />
             <div className="absolute bottom-10 right-10 w-40 h-40 border border-gold rounded-full" />
           </div>
-
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <h1 className="font-cinzel text-5xl md:text-7xl text-gold mb-4 tracking-wider">
               EXCELSIOR BURLESQUE FESTIVAL
@@ -66,12 +64,9 @@ function App() {
             <div className="text-2xl md:text-3xl text-gold/80 mb-8 font-light">
               II EDIZIONE
             </div>
-
             <p className="text-xl md:text-2xl text-porpora font-cinzel mb-12 italic">
               Tre giorni di eleganza, ironia e seduzione nella Roma Imperiale
             </p>
-
-            {/* Poster Image */}
             <div className="mb-12 border-4 border-gold p-4 bg-black/50 inline-block">
               <img
                 src="/images/locandina II ed..jpg"
@@ -79,18 +74,15 @@ function App() {
                 className="max-w-full h-auto max-h-96 object-contain"
               />
             </div>
-
             <div className="text-lg md:text-xl leading-relaxed mb-12 text-left max-w-3xl mx-auto space-y-6">
               <p>
                 Il fascino del burlesque incontra la grandezza di Roma in un festival unico nel suo genere.
                 Per tre serate, il Teatro Petrolini si trasforma in un'arena scintillante dove piume, ventagli
                 e tacchi a spillo rendono omaggio alla sensualità e alla Roma Imperiale.
               </p>
-
               <p className="text-gold font-semibold">
                 Dal 14 al 16 novembre 2025, il pubblico vivrà un viaggio tra spettacolo e storia:
               </p>
-
               <ul className="space-y-4 pl-6">
                 <li>
                   <span className="text-gold font-cinzel text-xl">• Venerdì 14 – Ludus Levis</span>
@@ -115,14 +107,11 @@ function App() {
                   </span>
                 </li>
               </ul>
-
               <p className="italic text-gold/90 pt-6">
                 Tre giorni di spettacolo, workshop e pura celebrazione dell'arte burlesque.
                 Una festa di libertà, ironia e bellezza. Un tributo alla Roma che fu — e alla femminilità che è.
               </p>
             </div>
-
-            {/* Location */}
             <div className="border-t border-b border-gold py-6 mb-8">
               <div className="flex items-center justify-center gap-3 text-gold text-lg md:text-xl">
                 <MapPin className="w-6 h-6" />
@@ -148,7 +137,6 @@ function App() {
             <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
               IL CAST – II EDIZIONE
             </h2>
-
             <div className="mb-12">
               <img
                 src="/images/def 001.jpg"
@@ -156,19 +144,16 @@ function App() {
                 className="max-w-full h-auto border-4 border-gold p-4"
               />
             </div>
-
             <div className="text-lg md:text-xl leading-relaxed mb-12 space-y-6">
               <p>
                 L'Excelsior Burlesque Festival II Edizione porta sul palco un cast straordinario di performer
                 internazionali e talenti emergenti del panorama burlesque.
               </p>
-
               <p className="text-gold">
                 Le artiste e gli artisti vengono annunciati progressivamente: seguici su Instagram per scoprire
                 in tempo reale chi si unirà al nostro spettacolo imperiale!
               </p>
             </div>
-
             <a
               href="https://www.instagram.com/excelsior_burlesque_festival"
               target="_blank"
@@ -178,9 +163,6 @@ function App() {
               <Instagram className="w-6 h-6" />
               SEGUI GLI AGGIORNAMENTI
             </a>
-
-            {/* BLOCCO PULSANTI DI NAVIGAZIONE RIMOSSO */}
-            
           </div>
         </section>
       )}
@@ -192,11 +174,9 @@ function App() {
             <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
               PROGRAMMA DEL FESTIVAL
             </h2>
-
             <p className="text-xl mb-12 text-gold/90">
               Tre serate uniche per vivere l'atmosfera di Roma Imperiale tra piume, lustrini e talento.
             </p>
-
             <div className="mb-12">
               <img
                 src="/images/def 002.tif"
@@ -204,8 +184,6 @@ function App() {
                 className="max-w-full h-auto border-4 border-gold p-4 mb-12"
               />
             </div>
-
-            {/* Program Cards */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
                 <h3 className="font-cinzel text-2xl text-porpora mb-4">
@@ -218,7 +196,6 @@ function App() {
                   Cerimonia d'apertura con performance mozzafiato.
                 </p>
               </div>
-
               <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
                 <h3 className="font-cinzel text-2xl text-porpora mb-4">
                   Sabato 15
@@ -230,7 +207,6 @@ function App() {
                   Il grande contest per eleggere l'Imperatrice, la Vestale, la Gladiatrice e il Favor Populi.
                 </p>
               </div>
-
               <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
                 <h3 className="font-cinzel text-2xl text-porpora mb-4">
                   Domenica 16
@@ -243,8 +219,6 @@ function App() {
                 </p>
               </div>
             </div>
-
-            {/* Booking Section */}
             <div className="border-4 border-gold p-8 bg-black/50 mb-8">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 PRENOTAZIONI
@@ -262,9 +236,6 @@ function App() {
                 PRENOTA ORA
               </a>
             </div>
-
-            {/* BLOCCO PULSANTI DI NAVIGAZIONE RIMOSSO */}
-            
           </div>
         </section>
       )}
@@ -276,14 +247,11 @@ function App() {
             <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
               EXCELSIOR BURLESQUE FESTIVAL – I EDIZIONE
             </h2>
-
             <p className="text-lg md:text-xl leading-relaxed mb-12">
               Uno sguardo alla magia della prima edizione: il debutto dell'Excelsior Burlesque Festival
               ha incantato il pubblico con un'esplosione di eleganza, ironia e pura energia.
               Rivivi i momenti più belli attraverso alcuni scatti di quella straordinaria esperienza.
             </p>
-
-            {/* Image Gallery Placeholder */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
               {[1, 2, 3, 4, 5, 6].map((i) => (
                 <div
@@ -298,9 +266,6 @@ function App() {
                 </div>
               ))}
             </div>
-            
-            {/* BLOCCO PULSANTI DI NAVIGAZIONE RIMOSSO */}
-
           </div>
         </section>
       )}
@@ -338,25 +303,45 @@ function App() {
                 </div>
               </div>
 
+              {/* --- BLOCCO CONTATTI MODIFICATO --- */}
               <div className="flex items-center justify-center gap-3">
                 <Instagram className="w-6 h-6 text-gold" />
-                <a
-                  href="https://www.instagram.com/excelsiorburlesquefestival"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gold hover:text-porpora transition-colors"
-                >
-                  @excelsior_burlesque_festival
-                </a>
+                <div>
+                  <p className="text-sm text-gold/80">Pagina Ufficiale:</p>
+                  <a
+                    href="https://www.instagram.com/excelsiorburlesquefestival"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gold hover:text-porpora transition-colors"
+                  >
+                    @excelsior_burlesque_festival
+                  </a>
+                </div>
               </div>
+
+              <div className="flex items-center justify-center gap-3">
+                <Instagram className="w-6 h-6 text-gold" />
+                <div>
+                  <p className="text-sm text-gold/80">Direzione Artistica:</p>
+                  <a
+                    href="https://www.instagram.com/matisse_royale" // URL CORRETTO
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gold hover:text-porpora transition-colors"
+                  >
+                    @matisse_royale
+                  </a>
+                </div>
+              </div>
+              {/* --- FINE BLOCCO MODIFICATO --- */}
 
               <div className="flex items-center justify-center gap-3">
                 <Mail className="w-6 h-6 text-gold" />
                 <a
-                  href="mailto:excelsiorburlesquefestival@gmail.it"
+                  href="mailto:excelsiorburlesquefestival@gmail.com" // Corretto .it con .com
                   className="text-gold hover:text-porpora transition-colors"
                 >
-                  excelsiorburlesquefestival@gmail.it
+                  excelsiorburlesquefestival@gmail.com
                 </a>
               </div>
             </div>
@@ -366,9 +351,6 @@ function App() {
                 © 2025 Excelsior Burlesque Festival – Tutti i diritti riservati
               </p>
             </div>
-
-            {/* PULSANTE "TORNA ALL'INIZIO" RIMOSSO */}
-            
           </div>
         </section>
       )}
