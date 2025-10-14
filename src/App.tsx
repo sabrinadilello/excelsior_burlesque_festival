@@ -22,8 +22,8 @@ function App() {
   ];
 
   return (
-    // --- MODIFICA QUI ---
-    <div className="min-h-screen bg-gradient-to-br from-black to-porpora text-white pb-24">
+    // --- MODIFICA CORRETTA E DEFINITIVA ---
+    <div className="min-h-screen bg-gradient-to-br from-black to-[#6A0DAD] text-white pb-24">
       
       <nav className="fixed inset-x-0 bottom-0 z-50 bg-black/80 backdrop-blur-sm border-t border-gold/30">
         <div className="flex justify-around items-center py-3">
