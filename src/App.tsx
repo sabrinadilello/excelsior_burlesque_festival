@@ -22,7 +22,7 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black to-[#a61e22]/50 text-white pb-24">
+    <div className="min-h-screen bg-black text-white pb-24">
       
       <nav className="fixed inset-x-0 bottom-0 z-50 bg-black/80 backdrop-blur-sm border-t border-gold/30">
         <div className="flex justify-around items-center py-3">
@@ -64,7 +64,7 @@ function App() {
             <div className="text-2xl md:text-3xl text-gold/80 mb-8 font-light">
               II EDIZIONE
             </div>
-            <p className="text-xl md:text-2xl text-[#a61e22] font-cinzel mb-12 italic">
+            <p className="text-xl md:text-2xl text-porpora font-cinzel mb-12 italic">
               Tre giorni di eleganza, ironia e seduzione nella Roma Imperiale
             </p>
             <div className="mb-12 border-4 border-gold p-4 bg-black/50 inline-block">
@@ -127,6 +127,7 @@ function App() {
               </a>
             </div>
             
+            {/* --- BLOCCO PRENOTAZIONI AGGIUNTO --- */}
             <div className="border-4 border-gold p-8 bg-black/50">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 PRENOTAZIONI
@@ -139,11 +140,13 @@ function App() {
                 href="https://forms.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#a61e22] text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
+                className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
               >
                 PRENOTA ORA
               </a>
             </div>
+            {/* --- FINE BLOCCO AGGIUNTO --- */}
+
           </div>
         </section>
       )}
@@ -176,12 +179,13 @@ function App() {
               href="https://www.instagram.com/excelsior_burlesque_festival"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#a61e22] text-white px-10 py-4 text-lg font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105 mb-8"
+              className="inline-flex items-center gap-3 bg-porpora text-white px-10 py-4 text-lg font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105 mb-8"
             >
               <Instagram className="w-6 h-6" />
               SEGUI GLI AGGIORNAMENTI
             </a>
             
+            {/* --- BLOCCO PRENOTAZIONI AGGIUNTO --- */}
             <div className="border-4 border-gold p-8 bg-black/50 mt-12">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 PRENOTAZIONI
@@ -194,11 +198,13 @@ function App() {
                 href="https://forms.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#a61e22] text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
+                className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
               >
                 PRENOTA ORA
               </a>
             </div>
+            {/* --- FINE BLOCCO AGGIUNTO --- */}
+
           </div>
         </section>
       )}
@@ -222,7 +228,7 @@ function App() {
             </div>
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-[#a61e22] mb-4">
+                <h3 className="font-cinzel text-2xl text-porpora mb-4">
                   Venerdì 14
                 </h3>
                 <h4 className="text-gold font-cinzel text-xl mb-3">
@@ -233,7 +239,7 @@ function App() {
                 </p>
               </div>
               <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-[#a61e22] mb-4">
+                <h3 className="font-cinzel text-2xl text-porpora mb-4">
                   Sabato 15
                 </h3>
                 <h4 className="text-gold font-cinzel text-xl mb-3">
@@ -244,7 +250,7 @@ function App() {
                 </p>
               </div>
               <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-[#a61e22] mb-4">
+                <h3 className="font-cinzel text-2xl text-porpora mb-4">
                   Domenica 16
                 </h3>
                 <h4 className="text-gold font-cinzel text-xl mb-3">
@@ -267,7 +273,7 @@ function App() {
                 href="https://forms.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#a61e22] text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
+                className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
               >
                 PRENOTA ORA
               </a>
@@ -292,9 +298,9 @@ function App() {
               {[1, 2, 3, 4, 5, 6].map((i) => (
                 <div
                   key={i}
-                  className="aspect-square border-2 border-gold p-2 hover:border-[#a61e22] transition-all"
+                  className="aspect-square border-2 border-gold p-2 hover:border-porpora transition-all"
                 >
-                  <div className="w-full h-full bg-gradient-to-br from-gold/20 to-[#a61e22]/20 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gold/20 to-porpora/20 flex items-center justify-center">
                     <span className="text-gold/50 font-cinzel text-sm">
                       Foto {i}
                     </span>
@@ -330,7 +336,7 @@ function App() {
                     href="https://maps.google.com/?q=Teatro+Petrolini+Via+Rubattino+5+Roma"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#a61e22] hover:text-gold transition-colors underline text-base"
+                    className="text-porpora hover:text-gold transition-colors underline text-base"
                   >
                     Visualizza su Google Maps
                   </a>
@@ -344,7 +350,7 @@ function App() {
                     href="https://www.instagram.com/excelsiorburlesquefestival"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-[#a61e22] transition-colors"
+                    className="text-white hover:text-porpora transition-colors"
                   >
                     @excelsior_burlesque_festival
                   </a>
@@ -358,7 +364,7 @@ function App() {
                     href="https://www.instagram.com/matisse_royale"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-[#a61e22] transition-colors"
+                    className="text-white hover:text-porpora transition-colors"
                   >
                     @matisse_royale
                   </a>
@@ -370,7 +376,7 @@ function App() {
                   <p className="font-cinzel text-gold">EMAIL:</p>
                   <a
                     href="mailto:excelsiorburlesquefestival@gmail.com"
-                    className="text-white hover:text-[#a61e22] transition-colors"
+                    className="text-white hover:text-porpora transition-colors"
                   >
                     excelsiorburlesquefestival@gmail.com
                   </a>
