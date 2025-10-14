@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera } from 'lucide-react';
 
 function App() {
@@ -12,6 +12,10 @@ function App() {
     setCurrentPage(page);
     scrollToTop();
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [currentPage]);
   
   const navItems = [
     { page: 1, Icon: Home, label: 'Home' },
