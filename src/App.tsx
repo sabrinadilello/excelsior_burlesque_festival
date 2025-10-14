@@ -286,12 +286,15 @@ function App() {
               INFORMAZIONI E CONTATTI
             </h2>
 
-            {/* SEZIONE CONTATTI CORRETTA */}
+            
+            {/* --- INIZIO BLOCCO DA SOSTITUIRE --- */}
             <div className="space-y-8 text-lg mb-12">
-              <div className="flex items-center justify-center gap-4">
+
+              {/* Contatto: Location */}
+              <div className="flex items-start justify-center gap-4">
                 <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
-                  <p className="font-cinzel text-gold">LOCATION:</p>
+                  <p className="font-cinzel text-gold">LOCATION</p>
                   <p className="text-white">Teatro Petrolini - Via Rubattino 5, Roma (Testaccio)</p>
                   <a
                     href="https://maps.google.com/?q=Teatro+Petrolini+Via+Rubattino+5+Roma"
@@ -304,7 +307,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center gap-4">
+              {/* Contatto: Instagram Ufficiale */}
+              <div className="flex items-start justify-center gap-4">
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">PAGINA UFFICIALE:</p>
@@ -319,12 +323,13 @@ function App() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center gap-4">
+              {/* Contatto: Instagram Direzione Artistica */}
+              <div className="flex items-start justify-center gap-4">
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
-                  <p className="font-cinzel text-gold">Direzione Artistica:</p>
+                  <p className="font-cinzel text-gold">DIREZIONE ARTISTICA:</p>
                   <a
-                    href="https://www.instagram.com/matisse_royale" 
+                    href="https://www.instagram.com/matisse_royale"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-porpora transition-colors"
@@ -334,7 +339,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center gap-4">
+              {/* Contatto: Email */}
+              <div className="flex items-start justify-center gap-4">
                 <Mail className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">EMAIL:</p>
@@ -346,9 +352,10 @@ function App() {
                   </a>
                 </div>
               </div>
-            </div>
-            {/* FINE SEZIONE CONTATTI CORRETTA */}
 
+            </div>
+            {/* --- FINE BLOCCO DA SOSTITUIRE --- */}
+            
             <div className="border-t border-gold pt-8">
               <p className="text-gold/70 text-sm">
                 © 2025 Excelsior Burlesque Festival – Tutti i diritti riservati
