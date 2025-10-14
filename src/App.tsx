@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react';
-import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera } from 'lucide-react';
+import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera, X } from 'lucide-react';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
-    scrollToTop();
   };
 
   useEffect(() => {
@@ -72,11 +71,13 @@ function App() {
               Tre giorni di eleganza, ironia e seduzione nella Roma Imperiale
             </p>
             <div className="mb-12 border-4 border-gold p-4 bg-black/50 inline-block">
-              <img
-                src="/images/locandina II ed..jpg"
-                alt="Locandina Excelsior Burlesque Festival II Edizione"
-                className="max-w-full h-auto max-h-96 object-contain"
-              />
+              <button onClick={() => setIsModalOpen(true)} className="cursor-zoom-in">
+                <img
+                  src="/images/locandina II ed..jpg"
+                  alt="Locandina Excelsior Burlesque Festival II Edizione"
+                  className="max-w-full h-auto max-h-96 object-contain"
+                />
+              </button>
             </div>
             <div className="text-lg md:text-xl leading-relaxed mb-12 text-left max-w-3xl mx-auto space-y-6">
               <p>
