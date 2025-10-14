@@ -125,7 +125,7 @@ function App() {
                 href="https://maps.google.com/?q=Teatro+Petrolini+Via+Rubattino+5+Roma"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 text-gold hover:text-white transition-colors underline"
+                className="inline-block mt-4 text-porpora hover:text-white transition-colors underline"
               >
                 Apri su Google Maps →
               </a>
@@ -334,7 +334,7 @@ function App() {
               <div className="flex items-start gap-4">
                 <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
-                  <p className="font-cinzel text-gold">LOCATION</p>
+                  <p className="font-cinzel text-gold">LOCATION:</p>
                   <p className="text-white">Teatro Petrolini - Via Rubattino 5, Roma (Testaccio)</p>
                   <a
                     href="https://maps.google.com/?q=Teatro+Petrolini+Via+Rubattino+5+Roma"
@@ -342,7 +342,7 @@ function App() {
                     rel="noopener noreferrer"
                     className="text-porpora hover:text-gold transition-colors underline text-base"
                   >
-                    Visualizza su Google Maps
+                    Apri su Google Maps →
                   </a>
                 </div>
               </div>
