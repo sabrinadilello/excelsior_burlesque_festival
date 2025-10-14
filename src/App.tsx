@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera, X } from 'lucide-react';
+// --- 1. ICONA AGGIUNTA ---
+import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera, X, Lightbulb } from 'lucide-react';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,7 +18,6 @@ function App() {
     scrollToTop();
   }, [currentPage]);
 
-  // --- EFFETTO AGGIUNTO PER GESTIRE IL TASTO ESC ---
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -34,26 +34,27 @@ function App() {
     };
   }, [isModalOpen]);
   
+  // --- 2. NAVITEMS AGGIORNATO ---
   const navItems = [
     { page: 1, Icon: Home, label: 'Home' },
     { page: 2, Icon: Users, label: 'Cast' },
-    { page: 3, Icon: Calendar, label: 'Programma' },
-    { page: 4, Icon: Camera, label: 'Galleria' },
-    { page: 5, Icon: Mail, label: 'Contatti' },
+    { page: 3, Icon: Lightbulb, label: 'Workshop' }, // Nuova pagina
+    { page: 4, Icon: Calendar, label: 'Programma' }, // Numero pagina aggiornato
+    { page: 5, Icon: Camera, label: 'Galleria' },    // Numero pagina aggiornato
+    { page: 6, Icon: Mail, label: 'Contatti' },      // Numero pagina aggiornato
   ];
 
   return (
     <div className="min-h-screen bg-black text-white pb-24">
       
-      {/* --- MODAL PER LA LOCANDINA --- */}
       {isModalOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-fadeIn"
-          onClick={() => setIsModalOpen(false)} // Chiude il modal cliccando sullo sfondo
+          onClick={() => setIsModalOpen(false)}
         >
           <div
             className="relative max-w-3xl w-full"
-            onClick={(e) => e.stopPropagation()} // Evita che il click sull'immagine chiuda il modal
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setIsModalOpen(false)}
@@ -115,7 +116,6 @@ function App() {
               Tre giorni di eleganza, ironia e seduzione nella Roma Imperiale
             </p>
             <div className="mb-12 border-4 border-gold p-4 bg-black/50 inline-block">
-              {/* --- BOTTONE MODIFICATO PER APRIRE IL MODAL --- */}
               <button onClick={() => setIsModalOpen(true)} className="cursor-zoom-in">
                 <img
                   src="/images/locandina II ed..jpg"
@@ -177,7 +177,6 @@ function App() {
               </a>
             </div>
             
-            {/* --- BLOCCO PRENOTAZIONI AGGIUNTO --- */}
             <div className="border-4 border-gold p-8 bg-black/50">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 PRENOTAZIONI
@@ -195,7 +194,6 @@ function App() {
                 PRENOTA ORA
               </a>
             </div>
-            {/* --- FINE BLOCCO AGGIUNTO --- */}
 
           </div>
         </section>
@@ -235,7 +233,6 @@ function App() {
               SEGUI GLI AGGIORNAMENTI
             </a>
             
-            {/* --- BLOCCO PRENOTAZIONI AGGIUNTO --- */}
             <div className="border-4 border-gold p-8 bg-black/50 mt-12">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 PRENOTAZIONI
@@ -253,14 +250,73 @@ function App() {
                 PRENOTA ORA
               </a>
             </div>
-            {/* --- FINE BLOCCO AGGIUNTO --- */}
 
           </div>
         </section>
       )}
-
-      {/* Page 3 - Program & Bookings */}
+      
+      {/* --- 3. NUOVA PAGINA WORKSHOP --- */}
       {currentPage === 3 && (
+        <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
+              WORKSHOP IMPERIALI
+            </h2>
+            <p className="text-xl mb-12 text-gold/90">
+              Impara l'arte del burlesque dalle stelle del festival. Un'occasione unica per
+              perfezionare la tua tecnica e scoprire i segreti della presenza scenica.
+            </p>
+            <div className="grid md:grid-cols-2 gap-8 mb-12 text-left">
+              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
+                <h3 className="font-cinzel text-2xl text-porpora mb-4">
+                  L'Arte della Seduzione Imperiale
+                </h3>
+                <h4 className="text-gold font-cinzel text-xl mb-3">
+                  Con Matisse Royale
+                </h4>
+                <p className="text-sm md:text-base">
+                  Un workshop intensivo sulla costruzione del personaggio, la fiducia in se stessi e
+                  la padronanza del palco. Impara a dominare la scena con l'eleganza di un'imperatrice.
+                  Adatto a tutti i livelli.
+                </p>
+              </div>
+              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
+                <h3 className="font-cinzel text-2xl text-porpora mb-4">
+                  Tecniche di Tease con Ventaglio
+                </h3>
+                <h4 className="text-gold font-cinzel text-xl mb-3">
+                  Con la nostra Guest Star Internazionale
+                </h4>
+                <p className="text-sm md:text-base">
+                  Scopri come trasformare un semplice ventaglio in uno strumento di seduzione e mistero.
+                  Questo workshop si concentra sulla tecnica, le coreografie e l'espressività
+                  legate a uno degli oggetti di scena più iconici del burlesque.
+                </p>
+              </div>
+            </div>
+            <div className="border-4 border-gold p-8 bg-black/50 mb-8">
+              <h3 className="font-cinzel text-3xl text-gold mb-6">
+                ISCRIVITI AI WORKSHOP
+              </h3>
+              <p className="text-lg mb-6">
+                I posti per i workshop sono limitati per garantire la migliore esperienza a tutti i partecipanti.
+                Compila il modulo per riservare il tuo posto.
+              </p>
+              <a
+                href="https://forms.google.com" // Link specifico per iscrizione workshop
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
+              >
+                ISCRIVITI ORA
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* --- 4. NUMERO PAGINA AGGIORNATO --- */}
+      {currentPage === 4 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
@@ -332,8 +388,8 @@ function App() {
         </section>
       )}
 
-      {/* Page 4 - Historic */}
-      {currentPage === 4 && (
+      {/* --- 4. NUMERO PAGINA AGGIORNATO --- */}
+      {currentPage === 5 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
@@ -362,8 +418,8 @@ function App() {
         </section>
       )}
 
-      {/* Page 5 - Contacts */}
-      {currentPage === 5 && (
+      {/* --- 4. NUMERO PAGINA AGGIORNATO --- */}
+      {currentPage === 6 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
           <div className="max-w-3xl mx-auto text-center">
             <div className="mb-12">
