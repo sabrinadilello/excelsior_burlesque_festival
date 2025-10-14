@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-// --- 1. ICONA AGGIUNTA ---
 import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera, X, Lightbulb } from 'lucide-react';
 
 function App() {
@@ -34,14 +33,13 @@ function App() {
     };
   }, [isModalOpen]);
   
-  // --- 2. NAVITEMS AGGIORNATO ---
   const navItems = [
     { page: 1, Icon: Home, label: 'Home' },
     { page: 2, Icon: Users, label: 'Cast' },
-    { page: 3, Icon: Lightbulb, label: 'Workshop' }, // Nuova pagina
-    { page: 4, Icon: Calendar, label: 'Programma' }, // Numero pagina aggiornato
-    { page: 5, Icon: Camera, label: 'Galleria' },    // Numero pagina aggiornato
-    { page: 6, Icon: Mail, label: 'Contatti' },      // Numero pagina aggiornato
+    { page: 3, Icon: Lightbulb, label: 'Workshop' },
+    { page: 4, Icon: Calendar, label: 'Programma' },
+    { page: 5, Icon: Camera, label: 'Galleria' },
+    { page: 6, Icon: Mail, label: 'Contatti' },
   ];
 
   return (
@@ -72,13 +70,14 @@ function App() {
         </div>
       )}
 
+      {/* --- NAVBAR CORRETTA --- */}
       <nav className="fixed inset-x-0 bottom-0 z-50 bg-black/80 backdrop-blur-sm border-t border-gold/30">
-        <div className="flex justify-around items-center py-3">
+        <div className="flex items-center py-3">
           {navItems.map((item) => (
             <button
               key={item.page}
               onClick={() => goToPage(item.page)}
-              className="flex flex-col items-center gap-1 text-xs transition-all duration-300 transform"
+              className="flex flex-1 flex-col items-center gap-1 text-xs transition-all duration-300 transform"
               aria-label={item.label}
             >
               <item.Icon
@@ -255,7 +254,7 @@ function App() {
         </section>
       )}
       
-      {/* --- 3. NUOVA PAGINA WORKSHOP --- */}
+      {/* Page 3 - Workshop */}
       {currentPage === 3 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
           <div className="max-w-4xl mx-auto text-center">
@@ -303,7 +302,7 @@ function App() {
                 Compila il modulo per riservare il tuo posto.
               </p>
               <a
-                href="https://forms.google.com" // Link specifico per iscrizione workshop
+                href="https://forms.google.com" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
@@ -315,7 +314,7 @@ function App() {
         </section>
       )}
 
-      {/* --- 4. NUMERO PAGINA AGGIORNATO --- */}
+      {/* Page 4 - Program */}
       {currentPage === 4 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
           <div className="max-w-4xl mx-auto text-center">
@@ -388,7 +387,7 @@ function App() {
         </section>
       )}
 
-      {/* --- 4. NUMERO PAGINA AGGIORNATO --- */}
+      {/* Page 5 - Gallery */}
       {currentPage === 5 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
           <div className="max-w-5xl mx-auto text-center">
@@ -418,7 +417,7 @@ function App() {
         </section>
       )}
 
-      {/* --- 4. NUMERO PAGINA AGGIORNATO --- */}
+      {/* Page 6 - Contacts */}
       {currentPage === 6 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
           <div className="max-w-3xl mx-auto text-center">
