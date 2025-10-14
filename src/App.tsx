@@ -4,6 +4,7 @@ import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera, X } from 'lucid
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -15,6 +16,23 @@ function App() {
   useEffect(() => {
     scrollToTop();
   }, [currentPage]);
+
+  // --- EFFETTO AGGIUNTO PER GESTIRE IL TASTO ESC ---
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsModalOpen(false);
+      }
+    };
+
+    if (isModalOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen]);
   
   const navItems = [
     { page: 1, Icon: Home, label: 'Home' },
@@ -27,6 +45,32 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-white pb-24">
       
+      {/* --- MODAL PER LA LOCANDINA --- */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-fadeIn"
+          onClick={() => setIsModalOpen(false)} // Chiude il modal cliccando sullo sfondo
+        >
+          <div
+            className="relative max-w-3xl w-full"
+            onClick={(e) => e.stopPropagation()} // Evita che il click sull'immagine chiuda il modal
+          >
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute -top-12 -right-4 md:-right-12 text-white hover:text-gold transition-colors"
+              aria-label="Chiudi"
+            >
+              <X className="w-10 h-10" />
+            </button>
+            <img
+              src="/images/locandina II ed..jpg"
+              alt="Locandina Excelsior Burlesque Festival II Edizione - Ingrandita"
+              className="w-full h-auto object-contain max-h-[90vh]"
+            />
+          </div>
+        </div>
+      )}
+
       <nav className="fixed inset-x-0 bottom-0 z-50 bg-black/80 backdrop-blur-sm border-t border-gold/30">
         <div className="flex justify-around items-center py-3">
           {navItems.map((item) => (
@@ -71,6 +115,7 @@ function App() {
               Tre giorni di eleganza, ironia e seduzione nella Roma Imperiale
             </p>
             <div className="mb-12 border-4 border-gold p-4 bg-black/50 inline-block">
+              {/* --- BOTTONE MODIFICATO PER APRIRE IL MODAL --- */}
               <button onClick={() => setIsModalOpen(true)} className="cursor-zoom-in">
                 <img
                   src="/images/locandina II ed..jpg"
