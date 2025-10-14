@@ -126,6 +126,27 @@ function App() {
                 Apri su Google Maps →
               </a>
             </div>
+            
+            {/* --- BLOCCO PRENOTAZIONI AGGIUNTO --- */}
+            <div className="border-4 border-gold p-8 bg-black/50">
+              <h3 className="font-cinzel text-3xl text-gold mb-6">
+                PRENOTAZIONI
+              </h3>
+              <p className="text-lg mb-6">
+                Vuoi partecipare all'Excelsior Burlesque Festival? Compila il modulo di prenotazione
+                e assicurati il tuo posto in platea.
+              </p>
+              <a
+                href="https://forms.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
+              >
+                PRENOTA ORA
+              </a>
+            </div>
+            {/* --- FINE BLOCCO AGGIUNTO --- */}
+
           </div>
         </section>
       )}
@@ -163,6 +184,27 @@ function App() {
               <Instagram className="w-6 h-6" />
               SEGUI GLI AGGIORNAMENTI
             </a>
+            
+            {/* --- BLOCCO PRENOTAZIONI AGGIUNTO --- */}
+            <div className="border-4 border-gold p-8 bg-black/50 mt-12">
+              <h3 className="font-cinzel text-3xl text-gold mb-6">
+                PRENOTAZIONI
+              </h3>
+              <p className="text-lg mb-6">
+                Vuoi partecipare all'Excelsior Burlesque Festival? Compila il modulo di prenotazione
+                e assicurati il tuo posto in platea.
+              </p>
+              <a
+                href="https://forms.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
+              >
+                PRENOTA ORA
+              </a>
+            </div>
+            {/* --- FINE BLOCCO AGGIUNTO --- */}
+
           </div>
         </section>
       )}
@@ -281,16 +323,10 @@ function App() {
                 className="max-w-xs mx-auto border-4 border-gold p-4"
               />
             </div>
-
             <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-12 tracking-wider">
               INFORMAZIONI E CONTATTI
             </h2>
-
-            
-            {/* --- INIZIO BLOCCO DA SOSTITUIRE --- */}
             <div className="space-y-8 text-lg mb-12 max-w-md mx-auto">
-
-              {/* Contatto: Location */}
               <div className="flex items-start gap-4">
                 <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
@@ -306,9 +342,7 @@ function App() {
                   </a>
                 </div>
               </div>
-
-              {/* Contatto: Instagram Ufficiale */}
-              <div className="flex items-start  gap-4">
+              <div className="flex items-start gap-4">
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">PAGINA UFFICIALE:</p>
@@ -322,8 +356,6 @@ function App() {
                   </a>
                 </div>
               </div>
-
-              {/* Contatto: Instagram Direzione Artistica */}
               <div className="flex items-start gap-4">
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
@@ -338,8 +370,6 @@ function App() {
                   </a>
                 </div>
               </div>
-
-              {/* Contatto: Email */}
               <div className="flex items-start gap-4">
                 <Mail className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
@@ -352,10 +382,7 @@ function App() {
                   </a>
                 </div>
               </div>
-
             </div>
-            {/* --- FINE BLOCCO DA SOSTITUIRE --- */}
-            
             <div className="border-t border-gold pt-8">
               <p className="text-gold/70 text-sm">
                 © 2025 Excelsior Burlesque Festival – Tutti i diritti riservati
