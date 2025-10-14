@@ -288,10 +288,10 @@ function App() {
 
             
             {/* --- INIZIO BLOCCO DA SOSTITUIRE --- */}
-            <div className="space-y-8 text-lg mb-12">
+            <div className="space-y-8 text-lg mb-12 max-w-md mx-auto">
 
               {/* Contatto: Location */}
-              <div className="flex items-start justify-center gap-4">
+              <div className="flex items-start gap-4">
                 <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">LOCATION</p>
@@ -308,7 +308,7 @@ function App() {
               </div>
 
               {/* Contatto: Instagram Ufficiale */}
-              <div className="flex items-start justify-center gap-4">
+              <div className="flex items-start  gap-4">
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">PAGINA UFFICIALE:</p>
@@ -324,7 +324,7 @@ function App() {
               </div>
 
               {/* Contatto: Instagram Direzione Artistica */}
-              <div className="flex items-start justify-center gap-4">
+              <div className="flex items-start gap-4">
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">DIREZIONE ARTISTICA:</p>
@@ -340,7 +340,7 @@ function App() {
               </div>
 
               {/* Contatto: Email */}
-              <div className="flex items-start justify-center gap-4">
+              <div className="flex items-start gap-4">
                 <Mail className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">EMAIL:</p>
