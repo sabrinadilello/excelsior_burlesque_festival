@@ -22,8 +22,7 @@ function App() {
   ];
 
   return (
-    // --- MODIFICA CORRETTA E DEFINITIVA ---
-    <div className="min-h-screen bg-gradient-to-br from-red-100 to-black-900 text-white pb-24">
+    <div className="min-h-screen bg-black text-white pb-24">
       
       <nav className="fixed inset-x-0 bottom-0 z-50 bg-black/80 backdrop-blur-sm border-t border-gold/30">
         <div className="flex justify-around items-center py-3">
@@ -127,6 +126,8 @@ function App() {
                 Apri su Google Maps →
               </a>
             </div>
+            
+            {/* --- BLOCCO PRENOTAZIONI AGGIUNTO --- */}
             <div className="border-4 border-gold p-8 bg-black/50">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 PRENOTAZIONI
@@ -144,6 +145,8 @@ function App() {
                 PRENOTA ORA
               </a>
             </div>
+            {/* --- FINE BLOCCO AGGIUNTO --- */}
+
           </div>
         </section>
       )}
@@ -181,6 +184,8 @@ function App() {
               <Instagram className="w-6 h-6" />
               SEGUI GLI AGGIORNAMENTI
             </a>
+            
+            {/* --- BLOCCO PRENOTAZIONI AGGIUNTO --- */}
             <div className="border-4 border-gold p-8 bg-black/50 mt-12">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 PRENOTAZIONI
@@ -198,6 +203,8 @@ function App() {
                 PRENOTA ORA
               </a>
             </div>
+            {/* --- FINE BLOCCO AGGIUNTO --- */}
+
           </div>
         </section>
       )}
