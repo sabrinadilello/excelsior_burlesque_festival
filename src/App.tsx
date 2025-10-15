@@ -452,7 +452,7 @@ function App() {
                 <div className="text-left">
                   <p className="font-cinzel text-gold">PAGINA UFFICIALE:</p>
                   <a
-                    href="https://www.instagram.com/excelsiorburlesquefestival"
+                    href="https://www.instagram.com/excelsior_burlesque_festival"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-porpora transition-colors"
