@@ -253,7 +253,7 @@ function App() {
         </section>
       )}
       
-      {/* Page 3 - Workshop (CONTENUTO AGGIORNATO CON IMMAGINI) */}
+      {/* Page 3 - Workshop (NUOVO LAYOUT IMMAGINI) */}
       {currentPage === 3 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -278,11 +278,11 @@ function App() {
             </div>
             
             {/* Contenitore Workshop */}
-            <div className="flex flex-col gap-10 mb-12 text-left">
+            <div className="flex flex-col gap-16 mb-12 text-left">
               {/* Workshop 1 */}
-              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all flex flex-col md:flex-row gap-6 items-center md:items-start">
-                <div className="w-48 flex-shrink-0">
-                  <img src="/images/terryparadise.jpeg" alt="Foto di Terry Paradise" className="w-full h-auto object-cover border-2 border-gold/50" />
+              <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                <div className="w-64 flex-shrink-0">
+                  <img src="/images/terryparadise.jpeg" alt="Foto di Terry Paradise" className="w-full h-auto object-cover" />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
@@ -306,9 +306,9 @@ function App() {
               </div>
 
               {/* Workshop 2 */}
-              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all flex flex-col md:flex-row gap-6 items-center md:items-start">
-                <div className="w-48 flex-shrink-0">
-                  <img src="/images/ladybb.jpeg" alt="Foto di Lady BB" className="w-full h-auto object-cover border-2 border-gold/50" />
+              <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                <div className="w-64 flex-shrink-0">
+                  <img src="/images/ladybb.jpeg" alt="Foto di Lady BB" className="w-full h-auto object-cover" />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
@@ -333,9 +333,9 @@ function App() {
               </div>
               
               {/* Workshop 3 */}
-              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all flex flex-col md:flex-row gap-6 items-center md:items-start">
-                <div className="w-48 flex-shrink-0">
-                  <img src="/images/lunedunil.jpeg" alt="Foto di Lune du Nil" className="w-full h-auto object-cover border-2 border-gold/50" />
+              <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                <div className="w-64 flex-shrink-0">
+                  <img src="/images/lunedunil.jpeg" alt="Foto di Lune du Nil" className="w-full h-auto object-cover" />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
@@ -355,9 +355,9 @@ function App() {
               </div>
 
               {/* Workshop 4 */}
-              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all flex flex-col md:flex-row gap-6 items-center md:items-start">
-                <div className="w-48 flex-shrink-0">
-                  <img src="/images/elektrashow.jpeg" alt="Foto di Elektra Show" className="w-full h-auto object-cover border-2 border-gold/50" />
+              <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                <div className="w-64 flex-shrink-0">
+                  <img src="/images/elektrashow.jpeg" alt="Foto di Elektra Show" className="w-full h-auto object-cover" />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
