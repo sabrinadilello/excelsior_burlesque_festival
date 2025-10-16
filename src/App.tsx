@@ -185,7 +185,7 @@ function App() {
                 e assicurati il tuo posto in platea.
               </p>
               <a
-                href="https://forms.google.com"
+                href="https://forms.gle/nAeke1KamjxbaTqeA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
@@ -241,7 +241,7 @@ function App() {
                 e assicurati il tuo posto in platea.
               </p>
               <a
-                href="https://forms.google.com"
+                href="https://forms.gle/nAeke1KamjxbaTqeA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
@@ -302,7 +302,7 @@ function App() {
                 Compila il modulo per riservare il tuo posto.
               </p>
               <a
-                href="https://forms.google.com" 
+                href="https://forms.gle/nAeke1KamjxbaTqeA" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
@@ -375,7 +375,7 @@ function App() {
                 e assicurati il tuo posto in platea.
               </p>
               <a
-                href="https://forms.google.com"
+                href="https://forms.gle/nAeke1KamjxbaTqeA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
