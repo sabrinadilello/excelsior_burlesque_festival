@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-// --- ICONA AGGIUNTA ---
 import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera, X, Lightbulb, MessageCircle } from 'lucide-react';
 
 function App() {
@@ -77,7 +76,7 @@ function App() {
             <button
               key={item.page}
               onClick={() => goToPage(item.page)}
-              className="flex flex-1 flex-col items-center gap-1 text-xs transition-all duration-300 transform"
+              className="flex flex-1 flex-col items-center gap-1 px-1 text-xs transition-all duration-300 transform"
               aria-label={item.label}
             >
               <item.Icon
@@ -396,7 +395,6 @@ function App() {
               </p>
             </div>
             
-            {/* --- BLOCCO ISCRIZIONE WHATSAPP AGGIORNATO --- */}
             <div className="border-4 border-gold p-8 bg-black/50 mb-8">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 ISCRIVITI AI WORKSHOP
