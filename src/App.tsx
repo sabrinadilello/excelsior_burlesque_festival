@@ -70,7 +70,6 @@ function App() {
         </div>
       )}
 
-      {/* --- NAVBAR CORRETTA --- */}
       <nav className="fixed inset-x-0 bottom-0 z-50 bg-black/80 backdrop-blur-sm border-t border-gold/30">
         <div className="flex items-center py-3">
           {navItems.map((item) => (
@@ -254,55 +253,133 @@ function App() {
         </section>
       )}
       
-      {/* Page 3 - Workshop */}
+      {/* Page 3 - Workshop (CONTENUTO AGGIORNATO) */}
       {currentPage === 3 && (
-        <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
+        <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
-              WORKSHOP IMPERIALI
+            <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-4 tracking-wider border-b-2 border-gold pb-4">
+              WORKSHOP
             </h2>
-            <p className="text-xl mb-12 text-gold/90">
-              Impara l'arte del burlesque dalle stelle del festival. Un'occasione unica per
-              perfezionare la tua tecnica e scoprire i segreti della presenza scenica.
+            <p className="text-2xl text-porpora font-cinzel my-6 italic">
+              Esplora. Impara. Brilla.
             </p>
-            <div className="grid md:grid-cols-2 gap-8 mb-12 text-left">
+            <div className="text-lg leading-relaxed space-y-4 mb-12 text-left max-w-3xl mx-auto">
+              <p>
+                L’Excelsior Burlesque Festival non è solo spettacolo… è anche formazione, scoperta e condivisione.
+                Durante il weekend del festival, performer e insegnanti di fama nazionale guideranno i partecipanti in un viaggio alla scoperta del burlesque, dell’espressione scenica e della consapevolezza del corpo.
+              </p>
+              <p>
+                Quattro workshop unici, ognuno con una personalità e un approccio diverso: dalla costruzione del personaggio alla gestione dell’imprevisto, dalla sinuosità dei movimenti alla seduzione in scena.
+                Che tu sia alle prime armi o un’artista già esperta, troverai un’occasione per metterti in gioco, imparare e divertirti… con un pizzico di piume, glitter e autoironia!
+              </p>
+              <p className="text-gold pt-4">
+                Prenota il tuo posto e vivi da protagonista l’atmosfera dell’Excelsior Burlesque Festival. 💋
+              </p>
+            </div>
+            
+            {/* Contenitore Workshop */}
+            <div className="flex flex-col gap-10 mb-12 text-left">
+              {/* Workshop 1 */}
               <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-porpora mb-4">
-                  L'Arte della Seduzione Imperiale
+                <h3 className="font-cinzel text-2xl text-porpora mb-2">
+                  💄 MAKE-IT UP! – La tua storia, il tuo personaggio
                 </h3>
-                <h4 className="text-gold font-cinzel text-xl mb-3">
-                  Con Matisse Royale
-                </h4>
-                <p className="text-sm md:text-base">
-                  Un workshop intensivo sulla costruzione del personaggio, la fiducia in se stessi e
-                  la padronanza del palco. Impara a dominare la scena con l'eleganza di un'imperatrice.
-                  Adatto a tutti i livelli.
-                </p>
+                <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Terry Paradise</p>
+                <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
+                  <p>🗓 <span className="font-semibold">Sabato 15 Novembre, ore 17:15</span></p>
+                  <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+                </div>
+                <p className="mb-4">In questo originalissimo workshop, Terry Paradise invita ogni partecipante non solo a sperimentare l’arte della seduzione, ma anche a dare vita a un personaggio burlesque unico e autentico. Attraverso elementi fondamentali dell’arte scenica — come trucco, costume, presenza scenica e costruzione del progetto artistico — scoprirai come raccontare te stessə sul palco in modo consapevole, potente e creativo.</p>
+                <p className="font-cinzel text-gold mt-4">Contenuti:</p>
+                <p>Breve storia del Burlesque e creazione di un progetto e sviluppo del personaggio. (Saranno rilasciate brevi dispense)</p>
+                <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
+                <p>A tuttə coloro che desiderano esprimersi in modo creativo e personale, con o senza esperienza nel mondo del burlesque o delle arti performative.</p>
+                <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
+                <p>Abbigliamento comodo e un accessorio con cui giocare o sperimentare la propria espressività.</p>
+                <p className="font-cinzel text-gold mt-4">Obiettivi:</p>
+                <p>Costruire un personaggio scenico coerente con la propria identità creativa e con la propria visione artistica.</p>
               </div>
+
+              {/* Workshop 2 */}
               <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-porpora mb-4">
-                  Tecniche di Tease con Ventaglio
+                <h3 className="font-cinzel text-2xl text-porpora mb-2">
+                  IMPROVVISAZIONE E GESTIONE DELL’IMPREVISTO
                 </h3>
-                <h4 className="text-gold font-cinzel text-xl mb-3">
-                  Con la nostra Guest Star Internazionale
-                </h4>
-                <p className="text-sm md:text-base">
-                  Scopri come trasformare un semplice ventaglio in uno strumento di seduzione e mistero.
-                  Questo workshop si concentra sulla tecnica, le coreografie e l'espressività
-                  legate a uno degli oggetti di scena più iconici del burlesque.
-                </p>
+                <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Lady BB</p>
+                 <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
+                  <p>🗓 <span className="font-semibold">Sabato 15 Novembre, ore 18:45</span></p>
+                  <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+                </div>
+                <p className="italic mb-4">“La zip che non scende, il corsetto che non si slaccia... Tutti imprevisti che possono capitare sul palco! Lady BB vi insegnerà come uscirne indenni e vittoriosə!”</p>
+                <p className="mb-4">In questo frizzante workshop, Lady BB condurrà i partecipanti nel mondo dell’improvvisazione teatrale applicata al burlesque. Scoprirete come trasformare gli imprevisti in momenti di comicità, fascino e sicurezza scenica. Perché nel burlesque, anche quando qualcosa va storto… lo spettacolo deve continuare — con stile!</p>
+                <p className="font-cinzel text-gold mt-4">Contenuti:</p>
+                <p>Tecniche di improvvisazione, gestione scenica e come trasformare l’errore in opportunità artistica.</p>
+                <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
+                <p>A performer, aspiranti performer o chiunque voglia migliorare la propria presenza scenica e capacità di reazione dal vivo.</p>
+                <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
+                <p>Abbigliamento comodo e un piccolo oggetto di scena o costume con cui esercitarsi.</p>
+                <p className="font-cinzel text-gold mt-4">Obiettivi:</p>
+                <p>Sviluppare prontezza scenica, capacità di improvvisazione e fiducia nel proprio istinto artistico.</p>
+              </div>
+              
+              {/* Workshop 3 */}
+              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
+                <h3 className="font-cinzel text-2xl text-porpora mb-2">
+                  SINUOSITY 🐍
+                </h3>
+                <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Lune du Nil</p>
+                 <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
+                  <p>🗓 <span className="font-semibold">Domenica 16 Novembre, ore 14:00</span></p>
+                  <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+                </div>
+                <p className="mb-4">Una lezione che celebra la sinuosità del corpo, la sensualità dei movimenti e la gestione dell’energia emotiva sul palco. Attraverso esercizi di comunicazione non verbale, Lune guiderà le partecipanti in un viaggio sensoriale tra gestualità, consapevolezza e potenza espressiva.</p>
+                <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
+                <p>A tutt*! Dalle performer, ai ballerini, fino a chi desidera esplorare la propria sensualità e riscoprire il piacere del movimento.</p>
+                <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
+                <p>Abbigliamento comodo, tacchi comodi (o calzini), il vostro sorriso e voglia di divertirsi!</p>
+              </div>
+
+              {/* Workshop 4 */}
+              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
+                <h3 className="font-cinzel text-2xl text-porpora mb-2">
+                  BURLESQUE – I Tuoi Passi nel Mondo della Seduzione
+                </h3>
+                <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Elektra Show</p>
+                 <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
+                  <p>🗓 <span className="font-semibold">Domenica 16 Novembre, ore 15:30</span></p>
+                  <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+                </div>
+                <p className="mb-4">Un workshop dedicato a chi desidera avvicinarsi o approfondire l’arte della seduzione in movimento. Esploreremo le basi di pose, passi e dinamiche sceniche del linguaggio burlesque, arricchite da un tocco di glamour da showgirl. Si imparerà una breve coreografia con accenni di floor work.</p>
+                <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
+                <p>A tutt*! Dai curiosi che muovono i primi passi nel burlesque ai performer che desiderano affinare la propria presenza scenica.</p>
+                <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
+                <p>👠 Scarpe da scena o tacchi comodi, 🧤 guanti, calze a rete, reggicalze. Penna e carta facoltativi.</p>
               </div>
             </div>
+
+            {/* Pacchetto Speciale */}
+            <div className="border-4 border-gold p-8 bg-black/50 my-12">
+              <h3 className="font-cinzel text-3xl text-porpora mb-4">
+                Pacchetto Academia Excelsior
+              </h3>
+              <p className="text-lg mb-6">
+                Se vuoi vivere il festival al massimo, c’è il pacchetto perfetto per te: tutte e quattro le lezioni, un unico percorso per scoprire, creare e brillare.
+              </p>
+              <p className="text-2xl font-cinzel text-gold">
+                Prezzo speciale: 80€ invece di 100€
+              </p>
+            </div>
+            
+            {/* CTA Iscrizione */}
             <div className="border-4 border-gold p-8 bg-black/50 mb-8">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 ISCRIVITI AI WORKSHOP
               </h3>
               <p className="text-lg mb-6">
-                I posti per i workshop sono limitati per garantire la migliore esperienza a tutti i partecipanti.
-                Compila il modulo per riservare il tuo posto.
+                I posti per i workshop sono limitati. Compila il modulo per riservare il tuo posto e specificare a quali lezioni vuoi partecipare.
               </p>
               <a
-                href="https://forms.gle/nAeke1KamjxbaTqeA" 
+                href="https://forms.gle/nAeke1KamjxbaTqeA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
