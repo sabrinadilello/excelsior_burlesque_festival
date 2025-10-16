@@ -253,7 +253,7 @@ function App() {
         </section>
       )}
       
-      {/* Page 3 - Workshop (CONTENUTO AGGIORNATO) */}
+      {/* Page 3 - Workshop (CONTENUTO AGGIORNATO CON IMMAGINI) */}
       {currentPage === 3 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -280,80 +280,100 @@ function App() {
             {/* Contenitore Workshop */}
             <div className="flex flex-col gap-10 mb-12 text-left">
               {/* Workshop 1 */}
-              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-porpora mb-2">
-                  💄 MAKE-IT UP! – La tua storia, il tuo personaggio
-                </h3>
-                <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Terry Paradise</p>
-                <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
-                  <p>🗓 <span className="font-semibold">Sabato 15 Novembre, ore 17:15</span></p>
-                  <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all flex flex-col md:flex-row gap-6 items-center md:items-start">
+                <div className="w-48 flex-shrink-0">
+                  <img src="/images/terryparadise.jpeg" alt="Foto di Terry Paradise" className="w-full h-auto object-cover border-2 border-gold/50" />
                 </div>
-                <p className="mb-4">In questo originalissimo workshop, Terry Paradise invita ogni partecipante non solo a sperimentare l’arte della seduzione, ma anche a dare vita a un personaggio burlesque unico e autentico. Attraverso elementi fondamentali dell’arte scenica — come trucco, costume, presenza scenica e costruzione del progetto artistico — scoprirai come raccontare te stessə sul palco in modo consapevole, potente e creativo.</p>
-                <p className="font-cinzel text-gold mt-4">Contenuti:</p>
-                <p>Breve storia del Burlesque e creazione di un progetto e sviluppo del personaggio. (Saranno rilasciate brevi dispense)</p>
-                <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
-                <p>A tuttə coloro che desiderano esprimersi in modo creativo e personale, con o senza esperienza nel mondo del burlesque o delle arti performative.</p>
-                <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
-                <p>Abbigliamento comodo e un accessorio con cui giocare o sperimentare la propria espressività.</p>
-                <p className="font-cinzel text-gold mt-4">Obiettivi:</p>
-                <p>Costruire un personaggio scenico coerente con la propria identità creativa e con la propria visione artistica.</p>
+                <div className="flex-1">
+                  <h3 className="font-cinzel text-2xl text-porpora mb-2">
+                    💄 MAKE-IT UP! – La tua storia, il tuo personaggio
+                  </h3>
+                  <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Terry Paradise</p>
+                  <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
+                    <p>🗓 <span className="font-semibold">Sabato 15 Novembre, ore 17:15</span></p>
+                    <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+                  </div>
+                  <p className="mb-4">In questo originalissimo workshop, Terry Paradise invita ogni partecipante non solo a sperimentare l’arte della seduzione, ma anche a dare vita a un personaggio burlesque unico e autentico. Attraverso elementi fondamentali dell’arte scenica — come trucco, costume, presenza scenica e costruzione del progetto artistico — scoprirai come raccontare te stessə sul palco in modo consapevole, potente e creativo.</p>
+                  <p className="font-cinzel text-gold mt-4">Contenuti:</p>
+                  <p>Breve storia del Burlesque e creazione di un progetto e sviluppo del personaggio. (Saranno rilasciate brevi dispense)</p>
+                  <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
+                  <p>A tuttə coloro che desiderano esprimersi in modo creativo e personale, con o senza esperienza nel mondo del burlesque o delle arti performative.</p>
+                  <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
+                  <p>Abbigliamento comodo e un accessorio con cui giocare o sperimentare la propria espressività.</p>
+                  <p className="font-cinzel text-gold mt-4">Obiettivi:</p>
+                  <p>Costruire un personaggio scenico coerente con la propria identità creativa e con la propria visione artistica.</p>
+                </div>
               </div>
 
               {/* Workshop 2 */}
-              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-porpora mb-2">
-                  IMPROVVISAZIONE E GESTIONE DELL’IMPREVISTO
-                </h3>
-                <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Lady BB</p>
-                 <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
-                  <p>🗓 <span className="font-semibold">Sabato 15 Novembre, ore 18:45</span></p>
-                  <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all flex flex-col md:flex-row gap-6 items-center md:items-start">
+                <div className="w-48 flex-shrink-0">
+                  <img src="/images/ladybb.jpeg" alt="Foto di Lady BB" className="w-full h-auto object-cover border-2 border-gold/50" />
                 </div>
-                <p className="italic mb-4">“La zip che non scende, il corsetto che non si slaccia... Tutti imprevisti che possono capitare sul palco! Lady BB vi insegnerà come uscirne indenni e vittoriosə!”</p>
-                <p className="mb-4">In questo frizzante workshop, Lady BB condurrà i partecipanti nel mondo dell’improvvisazione teatrale applicata al burlesque. Scoprirete come trasformare gli imprevisti in momenti di comicità, fascino e sicurezza scenica. Perché nel burlesque, anche quando qualcosa va storto… lo spettacolo deve continuare — con stile!</p>
-                <p className="font-cinzel text-gold mt-4">Contenuti:</p>
-                <p>Tecniche di improvvisazione, gestione scenica e come trasformare l’errore in opportunità artistica.</p>
-                <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
-                <p>A performer, aspiranti performer o chiunque voglia migliorare la propria presenza scenica e capacità di reazione dal vivo.</p>
-                <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
-                <p>Abbigliamento comodo e un piccolo oggetto di scena o costume con cui esercitarsi.</p>
-                <p className="font-cinzel text-gold mt-4">Obiettivi:</p>
-                <p>Sviluppare prontezza scenica, capacità di improvvisazione e fiducia nel proprio istinto artistico.</p>
+                <div className="flex-1">
+                  <h3 className="font-cinzel text-2xl text-porpora mb-2">
+                    IMPROVVISAZIONE E GESTIONE DELL’IMPREVISTO
+                  </h3>
+                  <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Lady BB</p>
+                  <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
+                    <p>🗓 <span className="font-semibold">Sabato 15 Novembre, ore 18:45</span></p>
+                    <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+                  </div>
+                  <p className="italic mb-4">“La zip che non scende, il corsetto che non si slaccia... Tutti imprevisti che possono capitare sul palco! Lady BB vi insegnerà come uscirne indenni e vittoriosə!”</p>
+                  <p className="mb-4">In questo frizzante workshop, Lady BB condurrà i partecipanti nel mondo dell’improvvisazione teatrale applicata al burlesque. Scoprirete come trasformare gli imprevisti in momenti di comicità, fascino e sicurezza scenica. Perché nel burlesque, anche quando qualcosa va storto… lo spettacolo deve continuare — con stile!</p>
+                  <p className="font-cinzel text-gold mt-4">Contenuti:</p>
+                  <p>Tecniche di improvvisazione, gestione scenica e come trasformare l’errore in opportunità artistica.</p>
+                  <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
+                  <p>A performer, aspiranti performer o chiunque voglia migliorare la propria presenza scenica e capacità di reazione dal vivo.</p>
+                  <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
+                  <p>Abbigliamento comodo e un piccolo oggetto di scena o costume con cui esercitarsi.</p>
+                  <p className="font-cinzel text-gold mt-4">Obiettivi:</p>
+                  <p>Sviluppare prontezza scenica, capacità di improvvisazione e fiducia nel proprio istinto artistico.</p>
+                </div>
               </div>
               
               {/* Workshop 3 */}
-              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-porpora mb-2">
-                  SINUOSITY 🐍
-                </h3>
-                <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Lune du Nil</p>
-                 <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
-                  <p>🗓 <span className="font-semibold">Domenica 16 Novembre, ore 14:00</span></p>
-                  <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all flex flex-col md:flex-row gap-6 items-center md:items-start">
+                <div className="w-48 flex-shrink-0">
+                  <img src="/images/lunedunil.jpeg" alt="Foto di Lune du Nil" className="w-full h-auto object-cover border-2 border-gold/50" />
                 </div>
-                <p className="mb-4">Una lezione che celebra la sinuosità del corpo, la sensualità dei movimenti e la gestione dell’energia emotiva sul palco. Attraverso esercizi di comunicazione non verbale, Lune guiderà le partecipanti in un viaggio sensoriale tra gestualità, consapevolezza e potenza espressiva.</p>
-                <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
-                <p>A tutt*! Dalle performer, ai ballerini, fino a chi desidera esplorare la propria sensualità e riscoprire il piacere del movimento.</p>
-                <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
-                <p>Abbigliamento comodo, tacchi comodi (o calzini), il vostro sorriso e voglia di divertirsi!</p>
+                <div className="flex-1">
+                  <h3 className="font-cinzel text-2xl text-porpora mb-2">
+                    SINUOSITY 🐍
+                  </h3>
+                  <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Lune du Nil</p>
+                  <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
+                    <p>🗓 <span className="font-semibold">Domenica 16 Novembre, ore 14:00</span></p>
+                    <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+                  </div>
+                  <p className="mb-4">Una lezione che celebra la sinuosità del corpo, la sensualità dei movimenti e la gestione dell’energia emotiva sul palco. Attraverso esercizi di comunicazione non verbale, Lune guiderà le partecipanti in un viaggio sensoriale tra gestualità, consapevolezza e potenza espressiva.</p>
+                  <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
+                  <p>A tutt*! Dalle performer, ai ballerini, fino a chi desidera esplorare la propria sensualità e riscoprire il piacere del movimento.</p>
+                  <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
+                  <p>Abbigliamento comodo, tacchi comodi (o calzini), il vostro sorriso e voglia di divertirsi!</p>
+                </div>
               </div>
 
               {/* Workshop 4 */}
-              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-porpora mb-2">
-                  BURLESQUE – I Tuoi Passi nel Mondo della Seduzione
-                </h3>
-                <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Elektra Show</p>
-                 <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
-                  <p>🗓 <span className="font-semibold">Domenica 16 Novembre, ore 15:30</span></p>
-                  <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all flex flex-col md:flex-row gap-6 items-center md:items-start">
+                <div className="w-48 flex-shrink-0">
+                  <img src="/images/elektrashow.jpeg" alt="Foto di Elektra Show" className="w-full h-auto object-cover border-2 border-gold/50" />
                 </div>
-                <p className="mb-4">Un workshop dedicato a chi desidera avvicinarsi o approfondire l’arte della seduzione in movimento. Esploreremo le basi di pose, passi e dinamiche sceniche del linguaggio burlesque, arricchite da un tocco di glamour da showgirl. Si imparerà una breve coreografia con accenni di floor work.</p>
-                <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
-                <p>A tutt*! Dai curiosi che muovono i primi passi nel burlesque ai performer che desiderano affinare la propria presenza scenica.</p>
-                <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
-                <p>👠 Scarpe da scena o tacchi comodi, 🧤 guanti, calze a rete, reggicalze. Penna e carta facoltativi.</p>
+                <div className="flex-1">
+                  <h3 className="font-cinzel text-2xl text-porpora mb-2">
+                    BURLESQUE – I Tuoi Passi nel Mondo della Seduzione
+                  </h3>
+                  <p className="text-gold font-cinzel text-xl mb-3">Tenuto da: Elektra Show</p>
+                  <div className="text-sm md:text-base border-t border-b border-gold/30 py-2 mb-4 space-y-1">
+                    <p>🗓 <span className="font-semibold">Domenica 16 Novembre, ore 15:30</span></p>
+                    <p>💰 <span className="font-semibold">Costo: 25€</span> – Durata: 1h 15 min</p>
+                  </div>
+                  <p className="mb-4">Un workshop dedicato a chi desidera avvicinarsi o approfondire l’arte della seduzione in movimento. Esploreremo le basi di pose, passi e dinamiche sceniche del linguaggio burlesque, arricchite da un tocco di glamour da showgirl. Si imparerà una breve coreografia con accenni di floor work.</p>
+                  <p className="font-cinzel text-gold mt-4">A chi è rivolto:</p>
+                  <p>A tutt*! Dai curiosi che muovono i primi passi nel burlesque ai performer che desiderano affinare la propria presenza scenica.</p>
+                  <p className="font-cinzel text-gold mt-4">Cosa portare:</p>
+                  <p>👠 Scarpe da scena o tacchi comodi, 🧤 guanti, calze a rete, reggicalze. Penna e carta facoltativi.</p>
+                </div>
               </div>
             </div>
 
