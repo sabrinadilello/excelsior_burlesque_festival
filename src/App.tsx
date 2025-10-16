@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera, X, Lightbulb } from 'lucide-react';
+// --- ICONA AGGIUNTA ---
+import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera, X, Lightbulb, MessageCircle } from 'lucide-react';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
-  // --- 1. STATO MODIFICATO: da boolean a stringa o null ---
   const [modalImageSrc, setModalImageSrc] = useState<string | null>(null);
   
   const scrollToTop = () => {
@@ -18,11 +18,10 @@ function App() {
     scrollToTop();
   }, [currentPage]);
 
-  // useEffect aggiornato per il nuovo stato
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setModalImageSrc(null); // Chiude il modal
+        setModalImageSrc(null);
       }
     };
 
@@ -47,25 +46,24 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-white pb-24">
       
-      {/* --- 2. MODAL AGGIORNATO PER ESSERE DINAMICO --- */}
       {modalImageSrc && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-fadeIn"
-          onClick={() => setModalImageSrc(null)} // Chiude il modal
+          onClick={() => setModalImageSrc(null)}
         >
           <div
             className="relative max-w-3xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => setModalImageSrc(null)} // Chiude il modal
+              onClick={() => setModalImageSrc(null)}
               className="absolute -top-12 -right-4 md:-right-12 text-white hover:text-gold transition-colors"
               aria-label="Chiudi"
             >
               <X className="w-10 h-10" />
             </button>
             <img
-              src={modalImageSrc} // L'immagine è ora dinamica
+              src={modalImageSrc}
               alt="Immagine ingrandita"
               className="w-full h-auto object-contain max-h-[90vh]"
             />
@@ -117,7 +115,6 @@ function App() {
               Tre giorni di eleganza, ironia e seduzione nella Roma Imperiale
             </p>
             <div className="mb-12 border-4 border-gold p-4 bg-black/50 inline-block">
-              {/* --- 3. PULSANTE AGGIORNATO --- */}
               <button 
                 onClick={() => setModalImageSrc('/images/locandina II ed..jpg')} 
                 className="cursor-zoom-in"
@@ -129,7 +126,6 @@ function App() {
                 />
               </button>
             </div>
-            {/* ... resto della pagina ... */}
             <div className="text-lg md:text-xl leading-relaxed mb-12 text-left max-w-3xl mx-auto space-y-6">
               <p>
                 Il fascino del burlesque incontra la grandezza di Roma in un festival unico nel suo genere.
@@ -261,7 +257,7 @@ function App() {
         </section>
       )}
       
-      {/* Page 3 - Workshop (IMMAGINI ZOOMABILI) */}
+      {/* Page 3 - Workshop */}
       {currentPage === 3 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -286,14 +282,12 @@ function App() {
             </div>
             
             <div className="flex flex-col gap-16 mb-12 text-left">
-              {/* Workshop 1 */}
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
                   <button onClick={() => setModalImageSrc('/images/terryparadise.jpeg')} className="cursor-zoom-in w-full">
                     <img src="/images/terryparadise.jpeg" alt="Foto di Terry Paradise" className="w-full h-auto object-cover" />
                   </button>
                 </div>
-                {/* ... testo workshop ... */}
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
                     💄 MAKE-IT UP! – La tua storia, il tuo personaggio
@@ -315,14 +309,12 @@ function App() {
                 </div>
               </div>
 
-              {/* Workshop 2 */}
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
                   <button onClick={() => setModalImageSrc('/images/ladybb.jpeg')} className="cursor-zoom-in w-full">
                     <img src="/images/ladybb.jpeg" alt="Foto di Lady BB" className="w-full h-auto object-cover" />
                   </button>
                 </div>
-                {/* ... testo workshop ... */}
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
                     IMPROVVISAZIONE E GESTIONE DELL’IMPREVISTO
@@ -345,14 +337,12 @@ function App() {
                 </div>
               </div>
               
-              {/* Workshop 3 */}
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
                   <button onClick={() => setModalImageSrc('/images/lunedunil.jpeg')} className="cursor-zoom-in w-full">
                     <img src="/images/lunedunil.jpeg" alt="Foto di Lune du Nil" className="w-full h-auto object-cover" />
                   </button>
                 </div>
-                {/* ... testo workshop ... */}
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
                     SINUOSITY 🐍
@@ -370,14 +360,12 @@ function App() {
                 </div>
               </div>
 
-              {/* Workshop 4 */}
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
                   <button onClick={() => setModalImageSrc('/images/elektrashow.jpeg')} className="cursor-zoom-in w-full">
                     <img src="/images/elektrashow.jpeg" alt="Foto di Elektra Show" className="w-full h-auto object-cover" />
                   </button>
                 </div>
-                {/* ... testo workshop ... */}
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
                     BURLESQUE – I Tuoi Passi nel Mondo della Seduzione
@@ -396,7 +384,6 @@ function App() {
               </div>
             </div>
 
-            {/* ... resto della pagina ... */}
             <div className="border-4 border-gold p-8 bg-black/50 my-12">
               <h3 className="font-cinzel text-3xl text-porpora mb-4">
                 Pacchetto Academia Excelsior
@@ -409,19 +396,21 @@ function App() {
               </p>
             </div>
             
+            {/* --- BLOCCO ISCRIZIONE WHATSAPP AGGIORNATO --- */}
             <div className="border-4 border-gold p-8 bg-black/50 mb-8">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 ISCRIVITI AI WORKSHOP
               </h3>
               <p className="text-lg mb-6">
-                I posti per i workshop sono limitati. Compila il modulo per riservare il tuo posto e specificare a quali lezioni vuoi partecipare.
+                I posti per i workshop sono limitati. Contattaci su WhatsApp per riservare il tuo posto e specificare a quali lezioni vuoi partecipare.
               </p>
               <a
-                href="https://forms.gle/nAeke1KamjxbaTqeA"
+                href="https://wa.me/393922752576"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
+                className="inline-flex items-center gap-3 bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
               >
+                <MessageCircle className="w-6 h-6" />
                 ISCRIVITI ORA
               </a>
             </div>
