@@ -3,7 +3,8 @@ import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera, X, Lightbulb } 
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // --- 1. STATO MODIFICATO: da boolean a stringa o null ---
+  const [modalImageSrc, setModalImageSrc] = useState<string | null>(null);
   
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -17,21 +18,22 @@ function App() {
     scrollToTop();
   }, [currentPage]);
 
+  // useEffect aggiornato per il nuovo stato
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setIsModalOpen(false);
+        setModalImageSrc(null); // Chiude il modal
       }
     };
 
-    if (isModalOpen) {
+    if (modalImageSrc) {
       window.addEventListener('keydown', handleKeyDown);
     }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isModalOpen]);
+  }, [modalImageSrc]);
   
   const navItems = [
     { page: 1, Icon: Home, label: 'Home' },
@@ -45,25 +47,26 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-white pb-24">
       
-      {isModalOpen && (
+      {/* --- 2. MODAL AGGIORNATO PER ESSERE DINAMICO --- */}
+      {modalImageSrc && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-fadeIn"
-          onClick={() => setIsModalOpen(false)}
+          onClick={() => setModalImageSrc(null)} // Chiude il modal
         >
           <div
             className="relative max-w-3xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => setIsModalOpen(false)}
+              onClick={() => setModalImageSrc(null)} // Chiude il modal
               className="absolute -top-12 -right-4 md:-right-12 text-white hover:text-gold transition-colors"
               aria-label="Chiudi"
             >
               <X className="w-10 h-10" />
             </button>
             <img
-              src="/images/locandina II ed..jpg"
-              alt="Locandina Excelsior Burlesque Festival II Edizione - Ingrandita"
+              src={modalImageSrc} // L'immagine è ora dinamica
+              alt="Immagine ingrandita"
               className="w-full h-auto object-contain max-h-[90vh]"
             />
           </div>
@@ -114,7 +117,11 @@ function App() {
               Tre giorni di eleganza, ironia e seduzione nella Roma Imperiale
             </p>
             <div className="mb-12 border-4 border-gold p-4 bg-black/50 inline-block">
-              <button onClick={() => setIsModalOpen(true)} className="cursor-zoom-in">
+              {/* --- 3. PULSANTE AGGIORNATO --- */}
+              <button 
+                onClick={() => setModalImageSrc('/images/locandina II ed..jpg')} 
+                className="cursor-zoom-in"
+              >
                 <img
                   src="/images/locandina II ed..jpg"
                   alt="Locandina Excelsior Burlesque Festival II Edizione"
@@ -122,6 +129,7 @@ function App() {
                 />
               </button>
             </div>
+            {/* ... resto della pagina ... */}
             <div className="text-lg md:text-xl leading-relaxed mb-12 text-left max-w-3xl mx-auto space-y-6">
               <p>
                 Il fascino del burlesque incontra la grandezza di Roma in un festival unico nel suo genere.
@@ -253,7 +261,7 @@ function App() {
         </section>
       )}
       
-      {/* Page 3 - Workshop (NUOVO LAYOUT IMMAGINI) */}
+      {/* Page 3 - Workshop (IMMAGINI ZOOMABILI) */}
       {currentPage === 3 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -277,13 +285,15 @@ function App() {
               </p>
             </div>
             
-            {/* Contenitore Workshop */}
             <div className="flex flex-col gap-16 mb-12 text-left">
               {/* Workshop 1 */}
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
-                  <img src="/images/terryparadise.jpeg" alt="Foto di Terry Paradise" className="w-full h-auto object-cover" />
+                  <button onClick={() => setModalImageSrc('/images/terryparadise.jpeg')} className="cursor-zoom-in w-full">
+                    <img src="/images/terryparadise.jpeg" alt="Foto di Terry Paradise" className="w-full h-auto object-cover" />
+                  </button>
                 </div>
+                {/* ... testo workshop ... */}
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
                     💄 MAKE-IT UP! – La tua storia, il tuo personaggio
@@ -308,8 +318,11 @@ function App() {
               {/* Workshop 2 */}
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
-                  <img src="/images/ladybb.jpeg" alt="Foto di Lady BB" className="w-full h-auto object-cover" />
+                  <button onClick={() => setModalImageSrc('/images/ladybb.jpeg')} className="cursor-zoom-in w-full">
+                    <img src="/images/ladybb.jpeg" alt="Foto di Lady BB" className="w-full h-auto object-cover" />
+                  </button>
                 </div>
+                {/* ... testo workshop ... */}
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
                     IMPROVVISAZIONE E GESTIONE DELL’IMPREVISTO
@@ -335,8 +348,11 @@ function App() {
               {/* Workshop 3 */}
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
-                  <img src="/images/lunedunil.jpeg" alt="Foto di Lune du Nil" className="w-full h-auto object-cover" />
+                  <button onClick={() => setModalImageSrc('/images/lunedunil.jpeg')} className="cursor-zoom-in w-full">
+                    <img src="/images/lunedunil.jpeg" alt="Foto di Lune du Nil" className="w-full h-auto object-cover" />
+                  </button>
                 </div>
+                {/* ... testo workshop ... */}
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
                     SINUOSITY 🐍
@@ -357,8 +373,11 @@ function App() {
               {/* Workshop 4 */}
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
-                  <img src="/images/elektrashow.jpeg" alt="Foto di Elektra Show" className="w-full h-auto object-cover" />
+                  <button onClick={() => setModalImageSrc('/images/elektrashow.jpeg')} className="cursor-zoom-in w-full">
+                    <img src="/images/elektrashow.jpeg" alt="Foto di Elektra Show" className="w-full h-auto object-cover" />
+                  </button>
                 </div>
+                {/* ... testo workshop ... */}
                 <div className="flex-1">
                   <h3 className="font-cinzel text-2xl text-porpora mb-2">
                     BURLESQUE – I Tuoi Passi nel Mondo della Seduzione
@@ -377,7 +396,7 @@ function App() {
               </div>
             </div>
 
-            {/* Pacchetto Speciale */}
+            {/* ... resto della pagina ... */}
             <div className="border-4 border-gold p-8 bg-black/50 my-12">
               <h3 className="font-cinzel text-3xl text-porpora mb-4">
                 Pacchetto Academia Excelsior
@@ -390,7 +409,6 @@ function App() {
               </p>
             </div>
             
-            {/* CTA Iscrizione */}
             <div className="border-4 border-gold p-8 bg-black/50 mb-8">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 ISCRIVITI AI WORKSHOP
