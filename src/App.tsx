@@ -42,6 +42,13 @@ function App() {
     { page: 6, Icon: Mail, label: 'Contatti' },
   ];
 
+  // Array per le immagini della galleria
+  const galleryImages = [
+    '/images/Foto1.jpg',
+    '/images/Foto2.jpg',
+    '/images/Foto3.jpg',
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white pb-24">
       
@@ -416,7 +423,7 @@ function App() {
         </section>
       )}
 
-      {/* Page 4 - Program (CONTENUTO AGGIORNATO) */}
+      {/* Page 4 - Program */}
       {currentPage === 4 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -425,7 +432,6 @@ function App() {
             </h2>
             
             <div className="flex flex-col gap-12 text-left">
-              {/* Venerdì */}
               <div>
                 <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-4 border-b-2 border-gold/30 pb-2">
                   VENERDÌ 14 NOVEMBRE
@@ -442,13 +448,11 @@ function App() {
                 </div>
               </div>
               
-              {/* Sabato */}
               <div>
                 <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-4 border-b-2 border-gold/30 pb-2">
                   SABATO 15 NOVEMBRE
                 </h3>
                 <div className="flex flex-col gap-6">
-                  {/* Workshop Sabato */}
                   <div className="p-4 bg-black/20 rounded-lg">
                     <p className="font-semibold text-gold/80"><span className="font-cinzel">ore 17:15</span> – Workshop “MAKE IT UP!”</p>
                     <p className="text-sm md:text-base mt-1 text-gray-300">Con la guida di Terry Paradise, scopri come costruire un personaggio autentico e memorabile.</p>
@@ -457,7 +461,6 @@ function App() {
                     <p className="font-semibold text-gold/80"><span className="font-cinzel">ore 18:45</span> – Workshop “IMPROVVISAZIONE”</p>
                     <p className="text-sm md:text-base mt-1 text-gray-300">Un laboratorio dinamico per imparare a trasformare ogni errore di scena in un’occasione di spettacolo.</p>
                   </div>
-                  {/* Show Sabato */}
                   <div className="border-2 border-gold p-6 bg-gold/5 rounded-lg">
                     <p className="font-cinzel text-gold text-lg">ore 21:00</p>
                     <h4 className="font-cinzel text-3xl md:text-4xl text-porpora my-2 tracking-wider">
@@ -471,13 +474,11 @@ function App() {
                 </div>
               </div>
 
-              {/* Domenica */}
               <div>
                 <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-4 border-b-2 border-gold/30 pb-2">
                   DOMENICA 16 NOVEMBRE
                 </h3>
                 <div className="flex flex-col gap-6">
-                  {/* Workshop Domenica */}
                   <div className="p-4 bg-black/20 rounded-lg">
                     <p className="font-semibold text-gold/80"><span className="font-cinzel">ore 14:00</span> – Workshop “SINUOSITY”</p>
                     <p className="text-sm md:text-base mt-1 text-gray-300">Scopri l’arte del movimento sensuale, del controllo del corpo e della grazia scenica.</p>
@@ -486,7 +487,6 @@ function App() {
                     <p className="font-semibold text-gold/80"><span className="font-cinzel">ore 15:30</span> – Workshop “BURLESQUE”</p>
                     <p className="text-sm md:text-base mt-1 text-gray-300">Un’introduzione al linguaggio del burlesque, dove la seduzione incontra l’autenticità.</p>
                   </div>
-                  {/* Show Domenica */}
                   <div className="border-2 border-gold p-6 bg-gold/5 rounded-lg">
                     <p className="font-cinzel text-gold text-lg">ore 19:00</p>
                     <h4 className="font-cinzel text-3xl md:text-4xl text-porpora my-2 tracking-wider">
@@ -522,12 +522,12 @@ function App() {
         </section>
       )}
 
-      {/* Page 5 - Gallery */}
+      {/* Page 5 - Gallery (CONTENUTO AGGIORNATO) */}
       {currentPage === 5 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
-              EXCELSIOR BURLESQUE FESTIVAL – I EDIZIONE
+              GALLERIA I EDIZIONE
             </h2>
             <p className="text-lg md:text-xl leading-relaxed mb-12">
               Uno sguardo alla magia della prima edizione: il debutto dell'Excelsior Burlesque Festival
@@ -535,18 +535,34 @@ function App() {
               Rivivi i momenti più belli attraverso alcuni scatti di quella straordinaria esperienza.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div
-                  key={i}
-                  className="aspect-square border-2 border-gold p-2 hover:border-porpora transition-all"
-                >
-                  <div className="w-full h-full bg-gradient-to-br from-gold/20 to-porpora/20 flex items-center justify-center">
-                    <span className="text-gold/50 font-cinzel text-sm">
-                      Foto {i}
-                    </span>
+              {Array.from({ length: 6 }).map((_, index) => {
+                const imageSrc = galleryImages[index];
+                return (
+                  <div
+                    key={index}
+                    className="aspect-square border-2 border-gold p-2 hover:border-porpora transition-all bg-black"
+                  >
+                    {imageSrc ? (
+                      <button
+                        onClick={() => setModalImageSrc(imageSrc)}
+                        className="w-full h-full cursor-zoom-in block"
+                      >
+                        <img
+                          src={imageSrc}
+                          alt={`Foto galleria ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-gold/20 to-porpora/20 flex items-center justify-center">
+                        <span className="text-gold/50 font-cinzel text-sm">
+                          Prossimamente
+                        </span>
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
