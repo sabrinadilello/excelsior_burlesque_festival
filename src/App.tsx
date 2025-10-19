@@ -206,7 +206,7 @@ function App() {
         </section>
       )}
 
-      {/* Page 2 - Cast (CONTENUTO AGGIORNATO) */}
+      {/* Page 2 - Cast (CON ANTEPRIMA VIDEO) */}
       {currentPage === 2 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -215,13 +215,12 @@ function App() {
             </h2>
             <div className="mb-8">
               <img
-                src="/images/madrina.jpeg" // Immagine Madrina
+                src="/images/madrina.jpeg"
                 alt="Elektra Show, madrina del festival"
-                className="max-w-full h-auto" // Bordo rimosso
+                className="max-w-full h-auto"
               />
             </div>
 
-            {/* --- DIDASCALIA AGGIUNTA --- */}
             <div className="text-lg md:text-xl leading-relaxed my-12 space-y-4 text-left max-w-3xl mx-auto">
               <p className="font-cinzel text-2xl text-porpora italic text-center mb-6">
                 🔥 Roma si inchina alla sua nuova Dea dello Spettacolo! 🔥
@@ -236,12 +235,12 @@ function App() {
                 Preparatevi ad accoglierla… AVE ELEKTRA!
               </p>
             </div>
-            {/* --- FINE DIDASCALIA --- */}
 
             <div className="my-12 border-4 border-gold p-2 bg-black/50">
               <video
                 controls
                 playsInline
+                poster="/images/anteprima.jpeg" // <-- ANTEPRIMA AGGIUNTA
                 className="w-full h-auto"
               >
                 <source src="/images/reel.mp4" type="video/mp4" />
