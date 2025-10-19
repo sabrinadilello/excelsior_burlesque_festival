@@ -42,7 +42,6 @@ function App() {
     { page: 6, Icon: Mail, label: 'Contatti' },
   ];
 
-  // Array per le immagini della galleria
   const galleryImages = [
     '/images/Foto1.jpg',
     '/images/Foto2.jpg',
@@ -207,20 +206,35 @@ function App() {
         </section>
       )}
 
-      {/* Page 2 - Cast */}
+      {/* Page 2 - Cast (CON VIDEO LOCALE) */}
       {currentPage === 2 && (
-        <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
+        <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
               IL CAST – II EDIZIONE
             </h2>
-            <div className="mb-12">
+            <div className="mb-8">
               <img
                 src="/images/def 001.jpg"
                 alt="Cast Excelsior Burlesque Festival"
                 className="max-w-full h-auto border-4 border-gold p-4"
               />
             </div>
+
+            {/* --- BLOCCO VIDEO LOCALE AGGIUNTO --- */}
+            <div className="my-12 border-4 border-gold p-2 bg-black/50">
+              <video
+                controls
+                playsInline
+                poster="/images/def 001.jpg" // <-- Immagine di anteprima
+                className="w-full h-auto"
+              >
+                <source src="/images/reel.mp4" type="video/mp4" /> {/* <-- Il tuo video */}
+                Il tuo browser non supporta il tag video.
+              </video>
+            </div>
+            {/* --- FINE BLOCCO VIDEO --- */}
+
             <div className="text-lg md:text-xl leading-relaxed mb-12 space-y-6">
               <p>
                 L'Excelsior Burlesque Festival II Edizione porta sul palco un cast straordinario di performer
@@ -522,7 +536,7 @@ function App() {
         </section>
       )}
 
-      {/* Page 5 - Gallery (CONTENUTO AGGIORNATO) */}
+      {/* Page 5 - Gallery */}
       {currentPage === 5 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
           <div className="max-w-5xl mx-auto text-center">
