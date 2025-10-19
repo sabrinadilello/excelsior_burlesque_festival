@@ -206,7 +206,7 @@ function App() {
         </section>
       )}
 
-      {/* Page 2 - Cast (CON VIDEO LOCALE) */}
+      {/* Page 2 - Cast (SENZA IMMAGINE POSTER) */}
       {currentPage === 2 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -221,19 +221,16 @@ function App() {
               />
             </div>
 
-            {/* --- BLOCCO VIDEO LOCALE AGGIUNTO --- */}
             <div className="my-12 border-4 border-gold p-2 bg-black/50">
               <video
                 controls
                 playsInline
-                poster="/images/def 001.jpg" // <-- Immagine di anteprima
                 className="w-full h-auto"
               >
-                <source src="/images/reel.mp4" type="video/mp4" /> {/* <-- Il tuo video */}
+                <source src="/images/reel.mp4" type="video/mp4" />
                 Il tuo browser non supporta il tag video.
               </video>
             </div>
-            {/* --- FINE BLOCCO VIDEO --- */}
 
             <div className="text-lg md:text-xl leading-relaxed mb-12 space-y-6">
               <p>
