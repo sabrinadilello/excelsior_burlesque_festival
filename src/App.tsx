@@ -206,7 +206,7 @@ function App() {
         </section>
       )}
 
-      {/* Page 2 - Cast (SENZA IMMAGINE POSTER) */}
+      {/* Page 2 - Cast (CONTENUTO AGGIORNATO) */}
       {currentPage === 2 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -215,11 +215,28 @@ function App() {
             </h2>
             <div className="mb-8">
               <img
-                src="/images/def 001.jpg"
-                alt="Cast Excelsior Burlesque Festival"
-                className="max-w-full h-auto border-4 border-gold p-4"
+                src="/images/madrina.jpeg" // Immagine Madrina
+                alt="Elektra Show, madrina del festival"
+                className="max-w-full h-auto" // Bordo rimosso
               />
             </div>
+
+            {/* --- DIDASCALIA AGGIUNTA --- */}
+            <div className="text-lg md:text-xl leading-relaxed my-12 space-y-4 text-left max-w-3xl mx-auto">
+              <p className="font-cinzel text-2xl text-porpora italic text-center mb-6">
+                🔥 Roma si inchina alla sua nuova Dea dello Spettacolo! 🔥
+              </p>
+              <p>
+                Dalla Repubblica Ceca con furore, eleganza e magnetismo… <strong>Elektra Show</strong> è la <strong>MADRINA</strong> della seconda edizione dell’Excelsior Burlesque Festival!
+              </p>
+              <p>
+                Artista raffinata e regina del palcoscenico, Elektra incarna la perfetta fusione tra il fascino del burlesque classico e l’energia travolgente del neo-burlesque. Con la sua presenza scenica mozzafiato e numeri ricchi di sorprese, saprà conquistare il pubblico come una vera imperatrice dell’Impero Romano… in paillettes!
+              </p>
+              <p className="font-cinzel text-gold font-bold text-center pt-4">
+                Preparatevi ad accoglierla… AVE ELEKTRA!
+              </p>
+            </div>
+            {/* --- FINE DIDASCALIA --- */}
 
             <div className="my-12 border-4 border-gold p-2 bg-black/50">
               <video
