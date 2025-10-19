@@ -416,59 +416,92 @@ function App() {
         </section>
       )}
 
-      {/* Page 4 - Program */}
+      {/* Page 4 - Program (CONTENUTO AGGIORNATO) */}
       {currentPage === 4 && (
-        <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
+        <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
+            <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-12 tracking-wider border-b-2 border-gold pb-4">
               PROGRAMMA DEL FESTIVAL
             </h2>
-            <p className="text-xl mb-12 text-gold/90">
-              Tre serate uniche per vivere l'atmosfera di Roma Imperiale tra piume, lustrini e talento.
-            </p>
-            <div className="mb-12">
-              <img
-                src="/images/def 002.tif"
-                alt="Programma del Festival"
-                className="max-w-full h-auto border-4 border-gold p-4 mb-12"
-              />
+            
+            <div className="flex flex-col gap-12 text-left">
+              {/* Venerdì */}
+              <div>
+                <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-4 border-b-2 border-gold/30 pb-2">
+                  VENERDÌ 14 NOVEMBRE
+                </h3>
+                <div className="border-2 border-gold p-6 bg-gold/5 rounded-lg">
+                  <p className="font-cinzel text-gold text-lg">ore 21:00</p>
+                  <h4 className="font-cinzel text-3xl md:text-4xl text-porpora my-2 tracking-wider">
+                    LUDUS LEVIS
+                  </h4>
+                  <p className="text-base md:text-lg leading-relaxed">
+                    Una serata di apertura all’insegna dell’eleganza, dell’ironia e della leggerezza. Ludus Levis è il primo spettacolo del festival: un viaggio nel mondo del burlesque in tutte le sue forme, dove sensualità, comicità e arte performativa si fondono per creare un’esperienza unica e raffinata.
+                  </p>
+                  <p className="italic text-gold mt-4">👉 Non perdere l’Opening Night!</p>
+                </div>
+              </div>
+              
+              {/* Sabato */}
+              <div>
+                <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-4 border-b-2 border-gold/30 pb-2">
+                  SABATO 15 NOVEMBRE
+                </h3>
+                <div className="flex flex-col gap-6">
+                  {/* Workshop Sabato */}
+                  <div className="p-4 bg-black/20 rounded-lg">
+                    <p className="font-semibold text-gold/80"><span className="font-cinzel">ore 17:15</span> – Workshop “MAKE IT UP!”</p>
+                    <p className="text-sm md:text-base mt-1 text-gray-300">Con la guida di Terry Paradise, scopri come costruire un personaggio autentico e memorabile.</p>
+                  </div>
+                  <div className="p-4 bg-black/20 rounded-lg">
+                    <p className="font-semibold text-gold/80"><span className="font-cinzel">ore 18:45</span> – Workshop “IMPROVVISAZIONE”</p>
+                    <p className="text-sm md:text-base mt-1 text-gray-300">Un laboratorio dinamico per imparare a trasformare ogni errore di scena in un’occasione di spettacolo.</p>
+                  </div>
+                  {/* Show Sabato */}
+                  <div className="border-2 border-gold p-6 bg-gold/5 rounded-lg">
+                    <p className="font-cinzel text-gold text-lg">ore 21:00</p>
+                    <h4 className="font-cinzel text-3xl md:text-4xl text-porpora my-2 tracking-wider">
+                      ELECTIO IMPERATORIS
+                    </h4>
+                    <p className="text-base md:text-lg leading-relaxed">
+                      Lo show competitivo del festival! 10 performer una sola corona: le performer cercheranno di conquistare le grazie della giuria, a colpi di glitter e tacchi a spillo, per vincere il titolo di Imperatrice di Roma.
+                    </p>
+                    <p className="italic text-gold mt-4">👉 Scopri con noi chi sarà la nuova Imperatrice di Roma!</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Domenica */}
+              <div>
+                <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-4 border-b-2 border-gold/30 pb-2">
+                  DOMENICA 16 NOVEMBRE
+                </h3>
+                <div className="flex flex-col gap-6">
+                  {/* Workshop Domenica */}
+                  <div className="p-4 bg-black/20 rounded-lg">
+                    <p className="font-semibold text-gold/80"><span className="font-cinzel">ore 14:00</span> – Workshop “SINUOSITY”</p>
+                    <p className="text-sm md:text-base mt-1 text-gray-300">Scopri l’arte del movimento sensuale, del controllo del corpo e della grazia scenica.</p>
+                  </div>
+                  <div className="p-4 bg-black/20 rounded-lg">
+                    <p className="font-semibold text-gold/80"><span className="font-cinzel">ore 15:30</span> – Workshop “BURLESQUE”</p>
+                    <p className="text-sm md:text-base mt-1 text-gray-300">Un’introduzione al linguaggio del burlesque, dove la seduzione incontra l’autenticità.</p>
+                  </div>
+                  {/* Show Domenica */}
+                  <div className="border-2 border-gold p-6 bg-gold/5 rounded-lg">
+                    <p className="font-cinzel text-gold text-lg">ore 19:00</p>
+                    <h4 className="font-cinzel text-3xl md:text-4xl text-porpora my-2 tracking-wider">
+                      SPECTACULUM EXCELLENS
+                    </h4>
+                    <p className="text-base md:text-lg leading-relaxed">
+                      Il Gran Gala di Burlesque: con le esibizioni della Madrina dell'Excelsior, le guest e le vincitrici del contest. Un trionfo di arte, femminilità e ironia, per chiudere in bellezza l’Excelsior Burlesque Festival.
+                    </p>
+                    <p className="italic text-gold mt-4">👉 Vivi l’ultima notte di pura meraviglia!</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-porpora mb-4">
-                  Venerdì 14
-                </h3>
-                <h4 className="text-gold font-cinzel text-xl mb-3">
-                  Ludus Levis
-                </h4>
-                <p className="text-sm md:text-base">
-                  Cerimonia d'apertura con performance mozzafiato.
-                </p>
-              </div>
-              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-porpora mb-4">
-                  Sabato 15
-                </h3>
-                <h4 className="text-gold font-cinzel text-xl mb-3">
-                  Electio Imperatoris
-                </h4>
-                <p className="text-sm md:text-base">
-                  Il grande contest per eleggere l'Imperatrice, la Vestale, la Gladiatrice e il Favor Populi.
-                </p>
-              </div>
-              <div className="border-2 border-gold p-6 hover:bg-gold/10 transition-all">
-                <h3 className="font-cinzel text-2xl text-porpora mb-4">
-                  Domenica 16
-                </h3>
-                <h4 className="text-gold font-cinzel text-xl mb-3">
-                  Spectaculum Excellens
-                </h4>
-                <p className="text-sm md:text-base">
-                  Gran Galà di chiusura con madrina, guest star e vincitrici.
-                </p>
-              </div>
-            </div>
-            <div className="border-4 border-gold p-8 bg-black/50 mb-8">
+
+            <div className="border-4 border-gold p-8 bg-black/50 mt-12">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 PRENOTAZIONI
               </h3>
