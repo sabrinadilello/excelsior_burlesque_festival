@@ -206,7 +206,7 @@ function App() {
         </section>
       )}
 
-      {/* Page 2 - Cast (CON ANTEPRIMA VIDEO) */}
+      {/* Page 2 - Cast */}
       {currentPage === 2 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -240,7 +240,7 @@ function App() {
               <video
                 controls
                 playsInline
-                poster="/images/anteprima.jpeg" // <-- ANTEPRIMA AGGIUNTA
+                poster="/images/anteprima.jpeg"
                 className="w-full h-auto"
               >
                 <source src="/images/reel.mp4" type="video/mp4" />
@@ -450,7 +450,7 @@ function App() {
         </section>
       )}
 
-      {/* Page 4 - Program */}
+      {/* Page 4 - Program (CON PREZZI AGGIUNTI) */}
       {currentPage === 4 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -472,6 +472,9 @@ function App() {
                     Una serata di apertura all’insegna dell’eleganza, dell’ironia e della leggerezza. Ludus Levis è il primo spettacolo del festival: un viaggio nel mondo del burlesque in tutte le sue forme, dove sensualità, comicità e arte performativa si fondono per creare un’esperienza unica e raffinata.
                   </p>
                   <p className="italic text-gold mt-4">👉 Non perdere l’Opening Night!</p>
+                  <div className="border-t border-gold/30 mt-4 pt-4">
+                    <p className="font-cinzel text-lg text-gold text-right">Costo biglietto: <span className="text-2xl font-bold text-porpora">15€</span></p>
+                  </div>
                 </div>
               </div>
               
@@ -497,6 +500,9 @@ function App() {
                       Lo show competitivo del festival! 10 performer una sola corona: le performer cercheranno di conquistare le grazie della giuria, a colpi di glitter e tacchi a spillo, per vincere il titolo di Imperatrice di Roma.
                     </p>
                     <p className="italic text-gold mt-4">👉 Scopri con noi chi sarà la nuova Imperatrice di Roma!</p>
+                    <div className="border-t border-gold/30 mt-4 pt-4">
+                      <p className="font-cinzel text-lg text-gold text-right">Costo biglietto: <span className="text-2xl font-bold text-porpora">20€</span></p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -523,12 +529,27 @@ function App() {
                       Il Gran Gala di Burlesque: con le esibizioni della Madrina dell'Excelsior, le guest e le vincitrici del contest. Un trionfo di arte, femminilità e ironia, per chiudere in bellezza l’Excelsior Burlesque Festival.
                     </p>
                     <p className="italic text-gold mt-4">👉 Vivi l’ultima notte di pura meraviglia!</p>
+                    <div className="border-t border-gold/30 mt-4 pt-4">
+                      <p className="font-cinzel text-lg text-gold text-right">Costo biglietto: <span className="text-2xl font-bold text-porpora">20€</span></p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="border-4 border-gold p-8 bg-black/50 mt-12">
+            <div className="border-4 border-gold p-8 bg-black/50 my-12 text-center">
+              <h3 className="font-cinzel text-3xl text-porpora mb-4">
+                Pacchetto Maximus
+              </h3>
+              <p className="text-lg mb-6 italic">
+                "Dalle luci di Roma alle stelle del palcoscenico: conquista il tuo trono con il Pacchetto Maximus!"
+              </p>
+              <p className="text-2xl font-cinzel text-gold">
+                Tutte le serate: <span className="font-bold">50€</span>
+              </p>
+            </div>
+
+            <div className="border-4 border-gold p-8 bg-black/50">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 PRENOTAZIONI
               </h3>
