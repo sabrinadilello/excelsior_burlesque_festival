@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MapPin, Instagram, Mail, Home, Users, Calendar, X, Lightbulb, MessageCircle, ChevronDown } from 'lucide-react';
+import { MapPin, Instagram, Mail, Home, Users, Calendar, X, Lightbulb, MessageCircle, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -7,10 +7,16 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+// Definiamo un tipo per la galleria del modale
+type ModalGallery = {
+  images: string[];
+  currentIndex: number;
+};
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [modalImageSrc, setModalImageSrc] = useState<string | null>(null);
+  // Stato modificato: non più una stringa, ma un oggetto o null
+  const [modalGallery, setModalGallery] = useState<ModalGallery | null>(null);
   
   // Stato per gestire le sezioni a scomparsa nella pagina Cast
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -21,13 +27,31 @@ function App() {
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
-    // Chiudi le sezioni quando cambi pagina
     setOpenSection(null);
   };
 
-  // Funzione per aprire/chiudere le sezioni
   const toggleSection = (sectionName: string) => {
     setOpenSection(prev => (prev === sectionName ? null : sectionName));
+  };
+
+  // Funzione per aprire il modale
+  const openModal = (images: string[], index: number) => {
+    setModalGallery({ images, currentIndex: index });
+  };
+
+  // Funzioni per navigare nel modale
+  const showNextImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation(); // Impedisce la chiusura del modale se si clicca sul pulsante
+    if (modalGallery && modalGallery.currentIndex < modalGallery.images.length - 1) {
+      setModalGallery(prev => prev ? { ...prev, currentIndex: prev.currentIndex + 1 } : null);
+    }
+  };
+
+  const showPrevImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (modalGallery && modalGallery.currentIndex > 0) {
+      setModalGallery(prev => prev ? { ...prev, currentIndex: prev.currentIndex - 1 } : null);
+    }
   };
 
 
@@ -37,19 +61,24 @@ function App() {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (!modalGallery) return;
+
       if (event.key === 'Escape') {
-        setModalImageSrc(null);
+        setModalGallery(null);
+      }
+      if (event.key === 'ArrowRight') {
+        showNextImage();
+      }
+      if (event.key === 'ArrowLeft') {
+        showPrevImage();
       }
     };
 
-    if (modalImageSrc) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
-
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [modalImageSrc]);
+  }, [modalGallery]); // Aggiungiamo modalGallery come dipendenza
   
   const navItems = [
     { page: 1, Icon: Home, label: 'Home' },
@@ -74,32 +103,59 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-white pb-24">
       
-      {modalImageSrc && (
+      {modalGallery && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-fadeIn"
-          onClick={() => setModalImageSrc(null)}
+          onClick={() => setModalGallery(null)}
         >
+          {/* Pulsante Chiudi */}
+          <button
+            onClick={() => setModalGallery(null)}
+            className="absolute top-4 right-4 text-white hover:text-gold transition-colors z-50"
+            aria-label="Chiudi"
+          >
+            <X className="w-10 h-10" />
+          </button>
+
+          {/* Pulsante Precedente */}
+          {modalGallery.images.length > 1 && (
+            <button
+              onClick={showPrevImage}
+              disabled={modalGallery.currentIndex === 0}
+              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white p-2 rounded-full bg-black/30 hover:bg-black/60 transition-all disabled:opacity-30 disabled:cursor-not-allowed z-50"
+              aria-label="Immagine precedente"
+            >
+              <ChevronLeft className="w-10 h-10" />
+            </button>
+          )}
+
           <div
-            className="relative max-w-3xl w-full"
+            className="relative max-w-3xl w-full h-full flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={() => setModalImageSrc(null)}
-              className="absolute -top-12 -right-4 md:-right-12 text-white hover:text-gold transition-colors"
-              aria-label="Chiudi"
-            >
-              <X className="w-10 h-10" />
-            </button>
             <img
-              src={modalImageSrc}
+              src={modalGallery.images[modalGallery.currentIndex]}
               alt="Immagine ingrandita"
               className="w-full h-auto object-contain max-h-[90vh]"
             />
           </div>
+
+          {/* Pulsante Successivo */}
+          {modalGallery.images.length > 1 && (
+            <button
+              onClick={showNextImage}
+              disabled={modalGallery.currentIndex === modalGallery.images.length - 1}
+              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white p-2 rounded-full bg-black/30 hover:bg-black/60 transition-all disabled:opacity-30 disabled:cursor-not-allowed z-50"
+              aria-label="Immagine successiva"
+            >
+              <ChevronRight className="w-10 h-10" />
+            </button>
+          )}
+
         </div>
       )}
 
-      <nav className="fixed inset-x-0 bottom-0 z-50 bg-black/80 backdrop-blur-sm border-t border-gold/30">
+      <nav className="fixed inset-x-0 bottom-0 z-40 bg-black/80 backdrop-blur-sm border-t border-gold/30">
         <div className="flex items-center py-3">
           {navItems.map((item) => (
             <button
@@ -147,7 +203,7 @@ function App() {
             </p>
             <div className="mb-12 border-4 border-gold p-4 bg-black/50 inline-block">
               <button 
-                onClick={() => setModalImageSrc('/images/locandina II ed..jpg')} 
+                onClick={() => openModal(['/images/locandina II ed..jpg'], 0)} 
                 className="cursor-zoom-in"
               >
                 <img
@@ -232,7 +288,7 @@ function App() {
         </section>
       )}
 
-      {/* Page 2 - Cast (MODIFICATA CON IMMAGINI ZOOMMABILI) */}
+      {/* Page 2 - Cast */}
       {currentPage === 2 && (
         <section className="min-h-screen flex flex-col items-center px-6 py-20">
           <div className="max-w-4xl mx-auto w-full">
@@ -242,7 +298,7 @@ function App() {
             
             <div className="mb-12 text-center">
               <button 
-                onClick={() => setModalImageSrc('/images/presentatore.jpeg')}
+                onClick={() => openModal(['/images/presentatore.jpeg'], 0)}
                 className="cursor-zoom-in"
               >
                 <img src="/images/presentatore.jpeg" alt="Matisse Royale, producer" className="max-w-full h-auto" />
@@ -251,7 +307,7 @@ function App() {
 
             <div className="mb-12 text-center">
               <button
-                onClick={() => setModalImageSrc('/images/madrina.jpeg')}
+                onClick={() => openModal(['/images/madrina.jpeg'], 0)}
                 className="cursor-zoom-in"
               >
                 <img src="/images/madrina.jpeg" alt="Elektra Show, madrina del festival" className="max-w-full h-auto"/>
@@ -272,31 +328,18 @@ function App() {
               </div>
             </div>
 
-            {/* SEZIONI A SCOMPARSA */}
             <div className="space-y-8 mt-16">
               
-              {/* Sezione Giudici */}
               <div>
-                <button
-                  onClick={() => toggleSection('giudici')}
-                  className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80"
-                >
+                <button onClick={() => toggleSection('giudici')} className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80">
                   <span>Giudici</span>
                   <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'giudici' ? 'rotate-180' : ''}`} />
                 </button>
-                {openSection === 'giudici' && (
-                  <div className="py-4">
-                    <p className="text-center italic text-gold/70">Le immagini dei giudici saranno annunciate prossimamente.</p>
-                  </div>
-                )}
+                {openSection === 'giudici' && (<div className="py-4"><p className="text-center italic text-gold/70">Le immagini dei giudici saranno annunciate prossimamente.</p></div>)}
               </div>
 
-              {/* Sezione Performer Ludus Levis */}
               <div>
-                <button
-                  onClick={() => toggleSection('ludusLevis')}
-                  className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80"
-                >
+                <button onClick={() => toggleSection('ludusLevis')} className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80">
                   <span>Ludus Levis</span>
                   <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'ludusLevis' ? 'rotate-180' : ''}`} />
                 </button>
@@ -304,21 +347,13 @@ function App() {
                   <div className="py-4">
                     <p className="text-center text-lg italic text-gold/90 mb-8">Un assaggio del piacere che ti attende… scorri le immagini e scopri le dive della serata Ludus Levis</p>
                     <Swiper
-                      modules={[Navigation, Pagination]}
-                      spaceBetween={20}
-                      slidesPerView={2}
-                      navigation
-                      pagination={{ clickable: true }}
-                      breakpoints={{
-                        640: { slidesPerView: 2, spaceBetween: 20 },
-                        768: { slidesPerView: 3, spaceBetween: 30 },
-                        1024: { slidesPerView: 4, spaceBetween: 40 },
-                      }}
+                      modules={[Navigation, Pagination]} loop={true} spaceBetween={20} slidesPerView={2} navigation pagination={{ clickable: true }}
+                      breakpoints={{ 640: { slidesPerView: 2, spaceBetween: 20 }, 768: { slidesPerView: 3, spaceBetween: 30 }, 1024: { slidesPerView: 4, spaceBetween: 40 },}}
                       className="w-full"
                     >
                       {primaSerataImages.map((src, index) => (
                         <SwiperSlide key={index}>
-                          <button onClick={() => setModalImageSrc(src)} className="w-full cursor-zoom-in">
+                          <button onClick={() => openModal(primaSerataImages, index)} className="w-full cursor-zoom-in">
                             <img src={src} alt={`Performer ${index + 1}`} className="w-full h-auto object-cover aspect-[3/4]" />
                           </button>
                         </SwiperSlide>
@@ -328,12 +363,8 @@ function App() {
                 )}
               </div>
               
-              {/* Sezione Performer Electio Imperatoris */}
               <div>
-                <button
-                  onClick={() => toggleSection('electioImperatoris')}
-                  className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80"
-                >
+                <button onClick={() => toggleSection('electioImperatoris')} className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80">
                   <span>Electio Imperatoris</span>
                   <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'electioImperatoris' ? 'rotate-180' : ''}`} />
                 </button>
@@ -341,21 +372,13 @@ function App() {
                   <div className="py-4">
                     <p className="text-center text-lg italic text-gold/90 mb-8">Una notte di sfide, fascino e potere. Scorri per conoscere le regine che si contenderanno il titolo di Imperatrice.</p>
                     <Swiper
-                      modules={[Navigation, Pagination]}
-                      spaceBetween={20}
-                      slidesPerView={2}
-                      navigation
-                      pagination={{ clickable: true }}
-                       breakpoints={{
-                        640: { slidesPerView: 2, spaceBetween: 20 },
-                        768: { slidesPerView: 3, spaceBetween: 30 },
-                        1024: { slidesPerView: 4, spaceBetween: 40 },
-                      }}
+                      modules={[Navigation, Pagination]} loop={true} spaceBetween={20} slidesPerView={2} navigation pagination={{ clickable: true }}
+                       breakpoints={{ 640: { slidesPerView: 2, spaceBetween: 20 }, 768: { slidesPerView: 3, spaceBetween: 30 }, 1024: { slidesPerView: 4, spaceBetween: 40 },}}
                       className="w-full"
                     >
                       {secondaSerataImages.map((src, index) => (
                         <SwiperSlide key={index}>
-                           <button onClick={() => setModalImageSrc(src)} className="w-full cursor-zoom-in">
+                           <button onClick={() => openModal(secondaSerataImages, index)} className="w-full cursor-zoom-in">
                             <img src={src} alt={`Contestant ${index + 1}`} className="w-full h-auto object-cover aspect-[3/4]" />
                           </button>
                         </SwiperSlide>
@@ -365,25 +388,16 @@ function App() {
                 )}
               </div>
 
-              {/* Sezione Performer Spectaculum Excellens */}
               <div>
-                <button
-                  onClick={() => toggleSection('spectaculumExcellens')}
-                  className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80"
-                >
+                <button onClick={() => toggleSection('spectaculumExcellens')} className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80">
                   <span>Spectaculum Excellens</span>
                   <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'spectaculumExcellens' ? 'rotate-180' : ''}`} />
                 </button>
-                {openSection === 'spectaculumExcellens' && (
-                  <div className="py-4">
-                    <p className="text-center italic text-gold/70">Il cast di questa serata sarà annunciato prossimamente.</p>
-                  </div>
-                )}
+                {openSection === 'spectaculumExcellens' && (<div className="py-4"><p className="text-center italic text-gold/70">Il cast di questa serata sarà annunciato prossimamente.</p></div>)}
               </div>
 
             </div>
 
-            {/* BLOCCO PRENOTAZIONI CORRETTO */}
             <div className="border-4 border-gold p-8 bg-black/50 mt-16 text-center">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 PRENOTAZIONI
@@ -392,16 +406,10 @@ function App() {
                 Vuoi partecipare all'Excelsior Burlesque Festival? Compila il modulo di prenotazione
                 e assicurati il tuo posto in platea.
               </p>
-              <a
-                href="https://forms.gle/nAeke1KamjxbaTqeA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
-              >
+              <a href="https://forms.gle/nAeke1KamjxbaTqeA" target="_blank" rel="noopener noreferrer" className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105">
                 PRENOTA ORA
               </a>
             </div>
-
           </div>
         </section>
       )}
@@ -433,7 +441,7 @@ function App() {
             <div className="flex flex-col gap-16 mb-12 text-left">
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
-                  <button onClick={() => setModalImageSrc('/images/terryparadise.jpeg')} className="cursor-zoom-in w-full">
+                  <button onClick={() => openModal(['/images/terryparadise.jpeg'], 0)} className="cursor-zoom-in w-full">
                     <img src="/images/terryparadise.jpeg" alt="Foto di Terry Paradise" className="w-full h-auto object-cover" />
                   </button>
                 </div>
@@ -460,7 +468,7 @@ function App() {
 
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
-                  <button onClick={() => setModalImageSrc('/images/ladybb.jpeg')} className="cursor-zoom-in w-full">
+                  <button onClick={() => openModal(['/images/ladybb.jpeg'], 0)} className="cursor-zoom-in w-full">
                     <img src="/images/ladybb.jpeg" alt="Foto di Lady BB" className="w-full h-auto object-cover" />
                   </button>
                 </div>
@@ -488,7 +496,7 @@ function App() {
               
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
-                  <button onClick={() => setModalImageSrc('/images/lunedunil.jpeg')} className="cursor-zoom-in w-full">
+                  <button onClick={() => openModal(['/images/lunedunil.jpeg'], 0)} className="cursor-zoom-in w-full">
                     <img src="/images/lunedunil.jpeg" alt="Foto di Lune du Nil" className="w-full h-auto object-cover" />
                   </button>
                 </div>
@@ -511,7 +519,7 @@ function App() {
 
               <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="w-64 flex-shrink-0">
-                  <button onClick={() => setModalImageSrc('/images/elektrashow.jpeg')} className="cursor-zoom-in w-full">
+                  <button onClick={() => openModal(['/images/elektrashow.jpeg'], 0)} className="cursor-zoom-in w-full">
                     <img src="/images/elektrashow.jpeg" alt="Foto di Elektra Show" className="w-full h-auto object-cover" />
                   </button>
                 </div>
@@ -552,12 +560,7 @@ function App() {
               <p className="text-lg mb-6">
                 I posti per i workshop sono limitati. Contattaci su WhatsApp per riservare il tuo posto e specificare a quali lezioni vuoi partecipare.
               </p>
-              <a
-                href="https://wa.me/393922752576"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
-              >
+              <a href="https://wa.me/393922752576" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105">
                 <MessageCircle className="w-6 h-6" />
                 ISCRIVITI ORA
               </a>
@@ -673,12 +676,7 @@ function App() {
                 Vuoi partecipare all'Excelsior Burlesque Festival? Compila il modulo di prenotazione
                 e assicurati il tuo posto in platea.
               </p>
-              <a
-                href="https://forms.gle/nAeke1KamjxbaTqeA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
-              >
+              <a href="https://forms.gle/nAeke1KamjxbaTqeA" target="_blank" rel="noopener noreferrer" className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105">
                 PRENOTA ORA
               </a>
             </div>
@@ -706,12 +704,7 @@ function App() {
                 <div className="text-left">
                   <p className="font-cinzel text-gold">LOCATION:</p>
                   <p className="text-white">Teatro Petrolini - Via Rubattino 5, Roma (Testaccio)</p>
-                  <a
-                    href="https://maps.google.com/?q=Teatro+Petrolini+Via+Rubattino+5+Roma"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-porpora hover:text-gold transition-colors underline text-base"
-                  >
+                  <a href="https://maps.google.com/?q=Teatro+Petrolini+Via+Rubattino+5+Roma" target="_blank" rel="noopener noreferrer" className="text-porpora hover:text-gold transition-colors underline text-base">
                     Apri su Google Maps →
                   </a>
                 </div>
@@ -720,12 +713,7 @@ function App() {
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">PAGINA UFFICIALE:</p>
-                  <a
-                    href="https://www.instagram.com/excelsior_burlesque_festival"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-porpora transition-colors"
-                  >
+                  <a href="https://www.instagram.com/excelsior_burlesque_festival" target="_blank" rel="noopener noreferrer" className="text-white hover:text-porpora transition-colors">
                     @excelsior_burlesque_festival
                   </a>
                 </div>
@@ -734,12 +722,7 @@ function App() {
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">DIREZIONE ARTISTICA:</p>
-                  <a
-                    href="https://www.instagram.com/matisse_royale"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-porpora transition-colors"
-                  >
+                  <a href="https://www.instagram.com/matisse_royale" target="_blank" rel="noopener noreferrer" className="text-white hover:text-porpora transition-colors">
                     @matisse_royale
                   </a>
                 </div>
@@ -748,10 +731,7 @@ function App() {
                 <Mail className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">EMAIL:</p>
-                  <a
-                    href="mailto:excelsiorburlesquefestival@gmail.com"
-                    className="text-white hover:text-porpora transition-colors"
-                  >
+                  <a href="mailto:excelsiorburlesquefestival@gmail.com" className="text-white hover:text-porpora transition-colors">
                     excelsiorburlesquefestival@gmail.com
                   </a>
                 </div>
