@@ -33,19 +33,13 @@ function App() {
     };
   }, [modalImageSrc]);
   
+  // --- NAVITEMS AGGIORNATO (GALLERIA RIMOSSA) ---
   const navItems = [
     { page: 1, Icon: Home, label: 'Home' },
     { page: 2, Icon: Users, label: 'Cast' },
     { page: 3, Icon: Lightbulb, label: 'Workshop' },
     { page: 4, Icon: Calendar, label: 'Programma' },
-    { page: 5, Icon: Camera, label: 'Galleria' },
-    { page: 6, Icon: Mail, label: 'Contatti' },
-  ];
-
-  const galleryImages = [
-    '/images/Foto1.jpg',
-    '/images/Foto2.jpg',
-    '/images/Foto3.jpg',
+    { page: 5, Icon: Mail, label: 'Contatti' },
   ];
 
   return (
@@ -113,8 +107,12 @@ function App() {
             <h1 className="font-cinzel text-5xl md:text-7xl text-gold mb-4 tracking-wider">
               EXCELSIOR BURLESQUE FESTIVAL
             </h1>
-            <div className="text-2xl md:text-3xl text-gold/80 mb-8 font-light">
+            <div className="text-2xl md:text-3xl text-gold/80 mb-2 font-light">
               II EDIZIONE
+            </div>
+            {/* --- PRODUZIONE AGGIUNTA --- */}
+            <div className="font-cinzel text-lg md:text-xl text-gold/70 mb-8 tracking-widest">
+              UNA PRODUZIONE DI MATISSE ROYALE
             </div>
             <p className="text-xl md:text-2xl text-porpora font-cinzel mb-12 italic">
               Tre giorni di eleganza, ironia e seduzione nella Roma Imperiale
@@ -236,17 +234,7 @@ function App() {
               </p>
             </div>
 
-            <div className="my-12 border-4 border-gold p-2 bg-black/50">
-              <video
-                controls
-                playsInline
-                poster="/images/anteprima.jpeg"
-                className="w-full h-auto"
-              >
-                <source src="/images/reel.mp4" type="video/mp4" />
-                Il tuo browser non supporta il tag video.
-              </video>
-            </div>
+            {/* --- VIDEO RIMOSSO --- */}
 
             <div className="text-lg md:text-xl leading-relaxed mb-12 space-y-6">
               <p>
@@ -450,7 +438,7 @@ function App() {
         </section>
       )}
 
-      {/* Page 4 - Program (CON PREZZI AGGIUNTI) */}
+      {/* Page 4 - Program */}
       {currentPage === 4 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -570,54 +558,10 @@ function App() {
         </section>
       )}
 
-      {/* Page 5 - Gallery */}
-      {currentPage === 5 && (
-        <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
-              GALLERIA I EDIZIONE
-            </h2>
-            <p className="text-lg md:text-xl leading-relaxed mb-12">
-              Uno sguardo alla magia della prima edizione: il debutto dell'Excelsior Burlesque Festival
-              ha incantato il pubblico con un'esplosione di eleganza, ironia e pura energia.
-              Rivivi i momenti più belli attraverso alcuni scatti di quella straordinaria esperienza.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
-              {Array.from({ length: 6 }).map((_, index) => {
-                const imageSrc = galleryImages[index];
-                return (
-                  <div
-                    key={index}
-                    className="aspect-square border-2 border-gold p-2 hover:border-porpora transition-all bg-black"
-                  >
-                    {imageSrc ? (
-                      <button
-                        onClick={() => setModalImageSrc(imageSrc)}
-                        className="w-full h-full cursor-zoom-in block"
-                      >
-                        <img
-                          src={imageSrc}
-                          alt={`Foto galleria ${index + 1}`}
-                          className="w-full h-full object-cover"
-                        />
-                      </button>
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-gold/20 to-porpora/20 flex items-center justify-center">
-                        <span className="text-gold/50 font-cinzel text-sm">
-                          Prossimamente
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* --- PAGINA GALLERIA RIMOSSA --- */}
 
-      {/* Page 6 - Contacts */}
-      {currentPage === 6 && (
+      {/* Page 5 - Contacts (ex Page 6) */}
+      {currentPage === 5 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
           <div className="max-w-3xl mx-auto text-center">
             <div className="mb-12">
