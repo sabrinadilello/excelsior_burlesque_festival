@@ -33,7 +33,6 @@ function App() {
     };
   }, [modalImageSrc]);
   
-  // --- NAVITEMS AGGIORNATO (GALLERIA RIMOSSA) ---
   const navItems = [
     { page: 1, Icon: Home, label: 'Home' },
     { page: 2, Icon: Users, label: 'Cast' },
@@ -110,9 +109,9 @@ function App() {
             <div className="text-2xl md:text-3xl text-gold/80 mb-2 font-light">
               II EDIZIONE
             </div>
-            {/* --- PRODUZIONE AGGIUNTA --- */}
-            <div className="font-cinzel text-lg md:text-xl text-gold/70 mb-8 tracking-widest">
-              UNA PRODUZIONE DI MATISSE ROYALE
+            {/* --- STILE MODIFICATO --- */}
+            <div className="font-cinzel text-base text-gold/70 mb-8 italic tracking-wider">
+              una produzione di Matisse Royale
             </div>
             <p className="text-xl md:text-2xl text-porpora font-cinzel mb-12 italic">
               Tre giorni di eleganza, ironia e seduzione nella Roma Imperiale
@@ -233,8 +232,6 @@ function App() {
                 Preparatevi ad accoglierla… AVE ELEKTRA!
               </p>
             </div>
-
-            {/* --- VIDEO RIMOSSO --- */}
 
             <div className="text-lg md:text-xl leading-relaxed mb-12 space-y-6">
               <p>
@@ -558,9 +555,7 @@ function App() {
         </section>
       )}
 
-      {/* --- PAGINA GALLERIA RIMOSSA --- */}
-
-      {/* Page 5 - Contacts (ex Page 6) */}
+      {/* Page 5 - Contacts */}
       {currentPage === 5 && (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
           <div className="max-w-3xl mx-auto text-center">
