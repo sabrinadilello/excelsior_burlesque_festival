@@ -15,10 +15,8 @@ type ModalGallery = {
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
-  // Stato modificato: non più una stringa, ma un oggetto o null
   const [modalGallery, setModalGallery] = useState<ModalGallery | null>(null);
   
-  // Stato per gestire le sezioni a scomparsa nella pagina Cast
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   const scrollToTop = () => {
@@ -34,14 +32,12 @@ function App() {
     setOpenSection(prev => (prev === sectionName ? null : sectionName));
   };
 
-  // Funzione per aprire il modale
   const openModal = (images: string[], index: number) => {
     setModalGallery({ images, currentIndex: index });
   };
 
-  // Funzioni per navigare nel modale
   const showNextImage = (e?: React.MouseEvent) => {
-    e?.stopPropagation(); // Impedisce la chiusura del modale se si clicca sul pulsante
+    e?.stopPropagation();
     if (modalGallery && modalGallery.currentIndex < modalGallery.images.length - 1) {
       setModalGallery(prev => prev ? { ...prev, currentIndex: prev.currentIndex + 1 } : null);
     }
@@ -78,7 +74,7 @@ function App() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [modalGallery]); // Aggiungiamo modalGallery come dipendenza
+  }, [modalGallery]);
   
   const navItems = [
     { page: 1, Icon: Home, label: 'Home' },
@@ -102,13 +98,20 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white pb-24">
+      {/* Stili per personalizzare Swiper */}
+      <style>{`
+        :root {
+          --swiper-theme-color: #daa520; /* Colore oro per frecce e pallino attivo */
+          --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.4); /* Colore per pallini inattivi */
+          --swiper-pagination-bullet-inactive-opacity: 1;
+        }
+      `}</style>
       
       {modalGallery && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-fadeIn"
           onClick={() => setModalGallery(null)}
         >
-          {/* Pulsante Chiudi */}
           <button
             onClick={() => setModalGallery(null)}
             className="absolute top-4 right-4 text-white hover:text-gold transition-colors z-50"
@@ -117,7 +120,6 @@ function App() {
             <X className="w-10 h-10" />
           </button>
 
-          {/* Pulsante Precedente */}
           {modalGallery.images.length > 1 && (
             <button
               onClick={showPrevImage}
@@ -140,7 +142,6 @@ function App() {
             />
           </div>
 
-          {/* Pulsante Successivo */}
           {modalGallery.images.length > 1 && (
             <button
               onClick={showNextImage}
@@ -713,7 +714,12 @@ function App() {
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">PAGINA UFFICIALE:</p>
-                  <a href="https://www.instagram.com/excelsior_burlesque_festival" target="_blank" rel="noopener noreferrer" className="text-white hover:text-porpora transition-colors">
+                  <a
+                    href="https://www.instagram.com/excelsior_burlesque_festival"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-porpora transition-colors underline"
+                  >
                     @excelsior_burlesque_festival
                   </a>
                 </div>
@@ -722,7 +728,12 @@ function App() {
                 <Instagram className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">DIREZIONE ARTISTICA:</p>
-                  <a href="https://www.instagram.com/matisse_royale" target="_blank" rel="noopener noreferrer" className="text-white hover:text-porpora transition-colors">
+                  <a
+                    href="https://www.instagram.com/matisse_royale"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-porpora transition-colors underline"
+                  >
                     @matisse_royale
                   </a>
                 </div>
@@ -731,7 +742,10 @@ function App() {
                 <Mail className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <p className="font-cinzel text-gold">EMAIL:</p>
-                  <a href="mailto:excelsiorburlesquefestival@gmail.com" className="text-white hover:text-porpora transition-colors">
+                  <a
+                    href="mailto:excelsiorburlesquefestival@gmail.com"
+                    className="text-white hover:text-porpora transition-colors underline"
+                  >
                     excelsiorburlesquefestival@gmail.com
                   </a>
                 </div>
