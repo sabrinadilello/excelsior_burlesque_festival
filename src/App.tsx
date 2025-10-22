@@ -232,7 +232,7 @@ function App() {
         </section>
       )}
 
-      {/* Page 2 - Cast (MODIFICATA) */}
+      {/* Page 2 - Cast (MODIFICATA CON IMMAGINI ZOOMMABILI) */}
       {currentPage === 2 && (
         <section className="min-h-screen flex flex-col items-center px-6 py-20">
           <div className="max-w-4xl mx-auto w-full">
@@ -241,11 +241,21 @@ function App() {
             </h2>
             
             <div className="mb-12 text-center">
-              <img src="/images/presentatore.jpeg" alt="Matisse Royale, producer" className="max-w-full h-auto" />
+              <button 
+                onClick={() => setModalImageSrc('/images/presentatore.jpeg')}
+                className="cursor-zoom-in"
+              >
+                <img src="/images/presentatore.jpeg" alt="Matisse Royale, producer" className="max-w-full h-auto" />
+              </button>
             </div>
 
             <div className="mb-12 text-center">
-              <img src="/images/madrina.jpeg" alt="Elektra Show, madrina del festival" className="max-w-full h-auto"/>
+              <button
+                onClick={() => setModalImageSrc('/images/madrina.jpeg')}
+                className="cursor-zoom-in"
+              >
+                <img src="/images/madrina.jpeg" alt="Elektra Show, madrina del festival" className="max-w-full h-auto"/>
+              </button>
               <div className="text-lg md:text-xl leading-relaxed mt-8 space-y-4 text-left max-w-3xl mx-auto">
                 <p className="font-cinzel text-2xl text-porpora italic text-center mb-6">
                   🔥 Roma si inchina alla sua nuova Dea dello Spettacolo! 🔥
@@ -287,7 +297,7 @@ function App() {
                   onClick={() => toggleSection('ludusLevis')}
                   className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80"
                 >
-                  <span>Performer serata Ludus Levis</span>
+                  <span>Ludus Levis</span>
                   <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'ludusLevis' ? 'rotate-180' : ''}`} />
                 </button>
                 {openSection === 'ludusLevis' && (
@@ -324,7 +334,7 @@ function App() {
                   onClick={() => toggleSection('electioImperatoris')}
                   className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80"
                 >
-                  <span>Performer serata Electio Imperatoris</span>
+                  <span>Electio Imperatoris</span>
                   <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'electioImperatoris' ? 'rotate-180' : ''}`} />
                 </button>
                 {openSection === 'electioImperatoris' && (
@@ -361,7 +371,7 @@ function App() {
                   onClick={() => toggleSection('spectaculumExcellens')}
                   className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80"
                 >
-                  <span>Performer serata Spectaculum Excellens</span>
+                  <span>Spectaculum Excellens</span>
                   <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'spectaculumExcellens' ? 'rotate-180' : ''}`} />
                 </button>
                 {openSection === 'spectaculumExcellens' && (
