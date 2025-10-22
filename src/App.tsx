@@ -1,13 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MapPin, Instagram, Mail, Home, Users, Calendar, X, Lightbulb, MessageCircle } from 'lucide-react';
-
-// --- 1. IMPORTA SWIPER ---
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
+import { MapPin, Instagram, Mail, Home, Users, Calendar, Camera, X, Lightbulb, MessageCircle } from 'lucide-react';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,19 +40,6 @@ function App() {
     { page: 4, Icon: Calendar, label: 'Programma' },
     { page: 5, Icon: Mail, label: 'Contatti' },
   ];
-
-  // --- 2. DEFINISCI GLI ARRAY DI IMMAGINI PER I CAROSELLI ---
-  const primaSerataImages = [
-    'cartolina Astrey&Halley.jpg', 'cartolina baby blond.jpg', 'cartolina.jpg', 'ele.jpg', 
-    'Ellis.jpg', 'lady like.jpg', 'Lady Malvasia.jpg', 'lady Xena.jpg', 
-    'lilith lyla.jpg', 'nina.jpg', 'ralda.jpg', 'romi.jpg', 'Sinti.jpg'
-  ].map(img => `/images/prima serata/${img}`);
-
-  const secondaSerataImages = [
-    'cartolina 1.jpg', 'cartolina 2.jpg', 'cartolina 3.jpg', 'cartolina 4.jpg', 
-    'cartolina 5.jpg', 'cartolina Betty Rocket.jpg', 'cartolina.jpg', 
-    'cartolina6.jpg', 'cartolina7.jpg', 'cartolina8.jpg'
-  ].map(img => `/images/seconda serata/${img}`);
 
   return (
     <div className="min-h-screen bg-black text-white pb-24">
@@ -130,6 +109,7 @@ function App() {
             <div className="text-2xl md:text-3xl text-gold/80 mb-2 font-light">
               II EDIZIONE
             </div>
+            {/* --- STILE MODIFICATO --- */}
             <div className="font-cinzel text-base text-gold/70 mb-8 italic tracking-wider">
               una produzione di Matisse Royale
             </div>
@@ -223,106 +203,74 @@ function App() {
         </section>
       )}
 
-      {/* Page 2 - Cast (NUOVA STRUTTURA) */}
+      {/* Page 2 - Cast */}
       {currentPage === 2 && (
-        <section className="min-h-screen flex flex-col items-center px-6 py-20">
-          <div className="max-w-4xl mx-auto w-full">
-            <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-12 tracking-wider border-b-2 border-gold pb-4 text-center">
+        <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-cinzel text-4xl md:text-6xl text-gold mb-8 tracking-wider border-b-2 border-gold pb-4">
               IL CAST – II EDIZIONE
             </h2>
+            <div className="mb-8">
+              <img
+                src="/images/madrina.jpeg"
+                alt="Elektra Show, madrina del festival"
+                className="max-w-full h-auto"
+              />
+            </div>
+
+            <div className="text-lg md:text-xl leading-relaxed my-12 space-y-4 text-left max-w-3xl mx-auto">
+              <p className="font-cinzel text-2xl text-porpora italic text-center mb-6">
+                🔥 Roma si inchina alla sua nuova Dea dello Spettacolo! 🔥
+              </p>
+              <p>
+                Dalla Repubblica Ceca con furore, eleganza e magnetismo… <strong>Elektra Show</strong> è la <strong>MADRINA</strong> della seconda edizione dell’Excelsior Burlesque Festival!
+              </p>
+              <p>
+                Artista raffinata e regina del palcoscenico, Elektra incarna la perfetta fusione tra il fascino del burlesque classico e l’energia travolgente del neo-burlesque. Con la sua presenza scenica mozzafiato e numeri ricchi di sorprese, saprà conquistare il pubblico come una vera imperatrice dell’Impero Romano… in paillettes!
+              </p>
+              <p className="font-cinzel text-gold font-bold text-center pt-4">
+                Preparatevi ad accoglierla… AVE ELEKTRA!
+              </p>
+            </div>
+
+            <div className="text-lg md:text-xl leading-relaxed mb-12 space-y-6">
+              <p>
+                L'Excelsior Burlesque Festival II Edizione porta sul palco un cast straordinario di performer
+                internazionali e talenti emergenti del panorama burlesque.
+              </p>
+              <p className="text-gold">
+                Le artiste e gli artisti vengono annunciati progressivamente: seguici su Instagram per scoprire
+                in tempo reale chi si unirà al nostro spettacolo imperiale!
+              </p>
+            </div>
+            <a
+              href="https://www.instagram.com/excelsior_burlesque_festival"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-porpora text-white px-10 py-4 text-lg font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105 mb-8"
+            >
+              <Instagram className="w-6 h-6" />
+              SEGUI GLI AGGIORNAMENTI
+            </a>
             
-            {/* PRODUCER */}
-            <div className="mb-12 text-center">
-              <img src="/images/presentatore.jpeg" alt="Matisse Royale, producer" className="max-w-md mx-auto h-auto mb-4" />
+            <div className="border-4 border-gold p-8 bg-black/50 mt-12">
+              <h3 className="font-cinzel text-3xl text-gold mb-6">
+                PRENOTAZIONI
+              </h3>
+              <p className="text-lg mb-6">
+                Vuoi partecipare all'Excelsior Burlesque Festival? Compila il modulo di prenotazione
+                e assicurati il tuo posto in platea.
+              </p>
+              <a
+                href="https://forms.gle/nAeke1KamjxbaTqeA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-porpora text-white px-12 py-4 text-xl font-cinzel hover:bg-gold hover:text-black transition-all transform hover:scale-105"
+              >
+                PRENOTA ORA
+              </a>
             </div>
 
-            {/* MADRINA */}
-            <div className="mb-12 text-center">
-              <img src="/images/madrina.jpeg" alt="Elektra Show, madrina del festival" className="max-w-full h-auto"/>
-              <div className="text-lg md:text-xl leading-relaxed mt-8 space-y-4 text-left max-w-3xl mx-auto">
-                <p className="font-cinzel text-2xl text-porpora italic text-center mb-6">
-                  🔥 Roma si inchina alla sua nuova Dea dello Spettacolo! 🔥
-                </p>
-                <p>
-                  Dalla Repubblica Ceca con furore, eleganza e magnetismo… <strong>Elektra Show</strong> è la <strong>MADRINA</strong> della seconda edizione dell’Excelsior Burlesque Festival!
-                </p>
-                <p>
-                  Artista raffinata e regina del palcoscenico, Elektra incarna la perfetta fusione tra il fascino del burlesque classico e l’energia travolgente del neo-burlesque. Con la sua presenza scenica mozzafiato e numeri ricchi di sorprese, saprà conquistare il pubblico come una vera imperatrice dell’Impero Romano… in paillettes!
-                </p>
-                <p className="font-cinzel text-gold font-bold text-center pt-4">
-                  Preparatevi ad accoglierla… AVE ELEKTRA!
-                </p>
-              </div>
-            </div>
-
-            {/* SEZIONI PERFORMER */}
-            <div className="space-y-16">
-              
-              {/* GIUDICI (PLACEHOLDER) */}
-              <div>
-                <h3 className="font-cinzel text-3xl text-gold mb-6 border-b border-gold/30 pb-3 text-center">Giudici</h3>
-                <p className="text-center italic text-gold/70">Le immagini dei giudici saranno annunciate prossimamente.</p>
-              </div>
-
-              {/* CAROSELLO PRIMA SERATA */}
-              <div>
-                <h3 className="font-cinzel text-3xl text-gold mb-6 border-b border-gold/30 pb-3 text-center">Performer serata Ludus Levis</h3>
-                <Swiper
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={20}
-                  slidesPerView={2}
-                  navigation
-                  pagination={{ clickable: true }}
-                  breakpoints={{
-                    640: { slidesPerView: 2, spaceBetween: 20 },
-                    768: { slidesPerView: 3, spaceBetween: 30 },
-                    1024: { slidesPerView: 4, spaceBetween: 40 },
-                  }}
-                  className="w-full"
-                >
-                  {primaSerataImages.map((src, index) => (
-                    <SwiperSlide key={index}>
-                      <button onClick={() => setModalImageSrc(src)} className="w-full cursor-zoom-in">
-                        <img src={src} alt={`Performer ${index + 1}`} className="w-full h-auto object-cover aspect-[3/4]" />
-                      </button>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-
-              {/* CAROSELLO SECONDA SERATA */}
-              <div>
-                <h3 className="font-cinzel text-3xl text-gold mb-6 border-b border-gold/30 pb-3 text-center">Performer serata Electio Imperatoris</h3>
-                <Swiper
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={20}
-                  slidesPerView={2}
-                  navigation
-                  pagination={{ clickable: true }}
-                   breakpoints={{
-                    640: { slidesPerView: 2, spaceBetween: 20 },
-                    768: { slidesPerView: 3, spaceBetween: 30 },
-                    1024: { slidesPerView: 4, spaceBetween: 40 },
-                  }}
-                  className="w-full"
-                >
-                  {secondaSerataImages.map((src, index) => (
-                    <SwiperSlide key={index}>
-                       <button onClick={() => setModalImageSrc(src)} className="w-full cursor-zoom-in">
-                        <img src={src} alt={`Contestant ${index + 1}`} className="w-full h-auto object-cover aspect-[3/4]" />
-                      </button>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-
-              {/* SPECTACULUM EXCELLENS (PLACEHOLDER) */}
-              <div>
-                <h3 className="font-cinzel text-3xl text-gold mb-6 border-b border-gold/30 pb-3 text-center">Performer serata Spectaculum Excellens</h3>
-                <p className="text-center italic text-gold/70">Il cast di questa serata sarà annunciato prossimamente.</p>
-              </div>
-
-            </div>
           </div>
         </section>
       )}
