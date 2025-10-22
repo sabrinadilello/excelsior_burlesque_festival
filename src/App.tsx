@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MapPin, Instagram, Mail, Home, Users, Calendar, X, Lightbulb, MessageCircle } from 'lucide-react';
+import { MapPin, Instagram, Mail, Home, Users, Calendar, X, Lightbulb, MessageCircle, ChevronDown } from 'lucide-react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -12,13 +12,24 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [modalImageSrc, setModalImageSrc] = useState<string | null>(null);
   
+  // Stato per gestire le sezioni a scomparsa nella pagina Cast
+  const [openSection, setOpenSection] = useState<string | null>(null);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
+    // Chiudi le sezioni quando cambi pagina
+    setOpenSection(null);
   };
+
+  // Funzione per aprire/chiudere le sezioni
+  const toggleSection = (sectionName: string) => {
+    setOpenSection(prev => (prev === sectionName ? null : sectionName));
+  };
+
 
   useEffect(() => {
     scrollToTop();
@@ -221,7 +232,7 @@ function App() {
         </section>
       )}
 
-      {/* Page 2 - Cast (CORRETTO) */}
+      {/* Page 2 - Cast (MODIFICATA) */}
       {currentPage === 2 && (
         <section className="min-h-screen flex flex-col items-center px-6 py-20">
           <div className="max-w-4xl mx-auto w-full">
@@ -251,73 +262,119 @@ function App() {
               </div>
             </div>
 
-            <div className="space-y-16">
+            {/* SEZIONI A SCOMPARSA */}
+            <div className="space-y-8 mt-16">
               
+              {/* Sezione Giudici */}
               <div>
-                <h3 className="font-cinzel text-3xl text-gold mb-6 border-b border-gold/30 pb-3 text-center">Giudici</h3>
-                <p className="text-center italic text-gold/70">Le immagini dei giudici saranno annunciate prossimamente.</p>
-              </div>
-
-              <div>
-                <h3 className="font-cinzel text-3xl text-gold mb-6 border-b border-gold/30 pb-3 text-center">Performer serata Ludus Levis</h3>
-                <p className="text-center text-lg italic text-gold/90 mb-8">Un assaggio del piacere che ti attende… scorri le immagini e scopri le dive della serata Ludus Levis</p>
-                <Swiper
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={20}
-                  slidesPerView={2}
-                  navigation
-                  pagination={{ clickable: true }}
-                  breakpoints={{
-                    640: { slidesPerView: 2, spaceBetween: 20 },
-                    768: { slidesPerView: 3, spaceBetween: 30 },
-                    1024: { slidesPerView: 4, spaceBetween: 40 },
-                  }}
-                  className="w-full"
+                <button
+                  onClick={() => toggleSection('giudici')}
+                  className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80"
                 >
-                  {primaSerataImages.map((src, index) => (
-                    <SwiperSlide key={index}>
-                      <button onClick={() => setModalImageSrc(src)} className="w-full cursor-zoom-in">
-                        <img src={src} alt={`Performer ${index + 1}`} className="w-full h-auto object-cover aspect-[3/4]" />
-                      </button>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+                  <span>Giudici</span>
+                  <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'giudici' ? 'rotate-180' : ''}`} />
+                </button>
+                {openSection === 'giudici' && (
+                  <div className="py-4">
+                    <p className="text-center italic text-gold/70">Le immagini dei giudici saranno annunciate prossimamente.</p>
+                  </div>
+                )}
               </div>
 
+              {/* Sezione Performer Ludus Levis */}
               <div>
-                <h3 className="font-cinzel text-3xl text-gold mb-6 border-b border-gold/30 pb-3 text-center">Performer serata Electio Imperatoris</h3>
-                <p className="text-center text-lg italic text-gold/90 mb-8">Una notte di sfide, fascino e potere. Scorri per conoscere le regine che si contenderanno il titolo di Imperatrice.</p>
-                <Swiper
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={20}
-                  slidesPerView={2}
-                  navigation
-                  pagination={{ clickable: true }}
-                   breakpoints={{
-                    640: { slidesPerView: 2, spaceBetween: 20 },
-                    768: { slidesPerView: 3, spaceBetween: 30 },
-                    1024: { slidesPerView: 4, spaceBetween: 40 },
-                  }}
-                  className="w-full"
+                <button
+                  onClick={() => toggleSection('ludusLevis')}
+                  className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80"
                 >
-                  {secondaSerataImages.map((src, index) => (
-                    <SwiperSlide key={index}>
-                       <button onClick={() => setModalImageSrc(src)} className="w-full cursor-zoom-in">
-                        <img src={src} alt={`Contestant ${index + 1}`} className="w-full h-auto object-cover aspect-[3/4]" />
-                      </button>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+                  <span>Performer serata Ludus Levis</span>
+                  <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'ludusLevis' ? 'rotate-180' : ''}`} />
+                </button>
+                {openSection === 'ludusLevis' && (
+                  <div className="py-4">
+                    <p className="text-center text-lg italic text-gold/90 mb-8">Un assaggio del piacere che ti attende… scorri le immagini e scopri le dive della serata Ludus Levis</p>
+                    <Swiper
+                      modules={[Navigation, Pagination]}
+                      spaceBetween={20}
+                      slidesPerView={2}
+                      navigation
+                      pagination={{ clickable: true }}
+                      breakpoints={{
+                        640: { slidesPerView: 2, spaceBetween: 20 },
+                        768: { slidesPerView: 3, spaceBetween: 30 },
+                        1024: { slidesPerView: 4, spaceBetween: 40 },
+                      }}
+                      className="w-full"
+                    >
+                      {primaSerataImages.map((src, index) => (
+                        <SwiperSlide key={index}>
+                          <button onClick={() => setModalImageSrc(src)} className="w-full cursor-zoom-in">
+                            <img src={src} alt={`Performer ${index + 1}`} className="w-full h-auto object-cover aspect-[3/4]" />
+                          </button>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                )}
+              </div>
+              
+              {/* Sezione Performer Electio Imperatoris */}
+              <div>
+                <button
+                  onClick={() => toggleSection('electioImperatoris')}
+                  className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80"
+                >
+                  <span>Performer serata Electio Imperatoris</span>
+                  <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'electioImperatoris' ? 'rotate-180' : ''}`} />
+                </button>
+                {openSection === 'electioImperatoris' && (
+                  <div className="py-4">
+                    <p className="text-center text-lg italic text-gold/90 mb-8">Una notte di sfide, fascino e potere. Scorri per conoscere le regine che si contenderanno il titolo di Imperatrice.</p>
+                    <Swiper
+                      modules={[Navigation, Pagination]}
+                      spaceBetween={20}
+                      slidesPerView={2}
+                      navigation
+                      pagination={{ clickable: true }}
+                       breakpoints={{
+                        640: { slidesPerView: 2, spaceBetween: 20 },
+                        768: { slidesPerView: 3, spaceBetween: 30 },
+                        1024: { slidesPerView: 4, spaceBetween: 40 },
+                      }}
+                      className="w-full"
+                    >
+                      {secondaSerataImages.map((src, index) => (
+                        <SwiperSlide key={index}>
+                           <button onClick={() => setModalImageSrc(src)} className="w-full cursor-zoom-in">
+                            <img src={src} alt={`Contestant ${index + 1}`} className="w-full h-auto object-cover aspect-[3/4]" />
+                          </button>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                )}
               </div>
 
+              {/* Sezione Performer Spectaculum Excellens */}
               <div>
-                <h3 className="font-cinzel text-3xl text-gold mb-6 border-b border-gold/30 pb-3 text-center">Performer serata Spectaculum Excellens</h3>
-                <p className="text-center italic text-gold/70">Il cast di questa serata sarà annunciato prossimamente.</p>
+                <button
+                  onClick={() => toggleSection('spectaculumExcellens')}
+                  className="w-full flex justify-between items-center text-left font-cinzel text-3xl text-gold mb-4 border-b border-gold/30 pb-3 transition-colors hover:text-gold/80"
+                >
+                  <span>Performer serata Spectaculum Excellens</span>
+                  <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'spectaculumExcellens' ? 'rotate-180' : ''}`} />
+                </button>
+                {openSection === 'spectaculumExcellens' && (
+                  <div className="py-4">
+                    <p className="text-center italic text-gold/70">Il cast di questa serata sarà annunciato prossimamente.</p>
+                  </div>
+                )}
               </div>
 
             </div>
 
-            <div className="border-4 border-gold p-8 bg-black/50 mt-16">
+            {/* BLOCCO PRENOTAZIONI CORRETTO */}
+            <div className="border-4 border-gold p-8 bg-black/50 mt-16 text-center">
               <h3 className="font-cinzel text-3xl text-gold mb-6">
                 PRENOTAZIONI
               </h3>
