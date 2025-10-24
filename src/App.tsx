@@ -84,6 +84,11 @@ function App() {
     { page: 5, Icon: Mail, label: 'Contatti' },
   ];
 
+  const giudiciImages = [
+    'Giudice Amalia.jpg', 'Giudice Cristiana.jpg', 'Giudice Elektra.jpg', 
+    'Giudice Lola.jpg', 'Giudice Lune.jpg'
+  ].map(img => `/images/giudici/${img}`);
+
   const primaSerataImages = [
     'cartolina Astrey&Halley.jpg', 'cartolina baby blond.jpg', 'cartolina.jpg', 'ele.jpg', 
     'Ellis.jpg', 'lady like.jpg', 'Lady Malvasia.jpg', 'lady Xena.jpg', 
@@ -304,6 +309,20 @@ function App() {
               >
                 <img src="/images/presentatore.jpeg" alt="Matisse Royale, producer" className="max-w-full h-auto" />
               </button>
+              <div className="text-lg md:text-xl leading-relaxed mt-8 space-y-4 text-left max-w-3xl mx-auto">
+                <p>
+                  Matisse Royale è l’anima scintillante dell’Excelsior: showman, performer di fama internazionale e raffinato narratore di emozioni.
+                </p>
+                <p>
+                  Artista di boylesque, cantante e ballerino, unisce eleganza, ironia e sensualità in uno stile unico e riconoscibile.
+                </p>
+                <p>
+                  Dai palchi d’Europa alle luci dell’Excelsior, porta con sé un universo fatto di glamour, poesia e provocazione.
+                </p>
+                <p>
+                  Sul palco incanta, dietro le quinte crea: ogni suo spettacolo è un invito a lasciarsi sedurre dal potere dell’arte e dal piacere della meraviglia.
+                </p>
+              </div>
             </div>
 
             <div className="mb-12 text-center">
@@ -336,7 +355,26 @@ function App() {
                   <span>Giudici</span>
                   <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'giudici' ? 'rotate-180' : ''}`} />
                 </button>
-                {openSection === 'giudici' && (<div className="py-4"><p className="text-center italic text-gold/70">Le immagini dei giudici saranno annunciate prossimamente.</p></div>)}
+                {openSection === 'giudici' && (
+                  <div className="py-4">
+                    <p className="text-center text-lg italic text-gold/90 mb-8">
+                      Ecco la prestigiosa giuria che avrà l'onore di incoronare l'Imperatrice di Roma. Un panel di esperti dall'occhio critico e dal cuore appassionato.
+                    </p>
+                    <Swiper
+                      modules={[Navigation, Pagination]} loop={true} spaceBetween={20} slidesPerView={2} navigation pagination={{ clickable: true }}
+                      breakpoints={{ 640: { slidesPerView: 2, spaceBetween: 20 }, 768: { slidesPerView: 3, spaceBetween: 30 }, 1024: { slidesPerView: 4, spaceBetween: 40 },}}
+                      className="w-full"
+                    >
+                      {giudiciImages.map((src, index) => (
+                        <SwiperSlide key={index}>
+                          <button onClick={() => openModal(giudiciImages, index)} className="w-full cursor-zoom-in">
+                            <img src={src} alt={`Giudice ${index + 1}`} className="w-full h-auto object-cover aspect-[3/4]" />
+                          </button>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                )}
               </div>
 
               <div>
