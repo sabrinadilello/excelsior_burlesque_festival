@@ -101,6 +101,15 @@ function App() {
     'cartolina6.jpg', 'cartolina7.jpg', 'cartolina8.jpg'
   ].map(img => `/images/seconda serata/${img}`);
 
+  const terzaSerataImages = [
+    'Elektra Headliner.jpg', // Messa per prima come richiesto
+    'Amalia.jpg',
+    'Lady BB.jpg',
+    'Lun Du Nil 2025.jpg',
+    'Rocky Bon Bon.jpg',
+    'Titty Flambè.jpg'
+  ].map(img => `/images/terza serata/${img}`);
+
   return (
     <div className="min-h-screen bg-black text-white pb-24">
       {/* Stili per personalizzare Swiper */}
@@ -432,7 +441,26 @@ function App() {
                   <span>Spectaculum Excellens</span>
                   <ChevronDown className={`w-8 h-8 transition-transform duration-300 ${openSection === 'spectaculumExcellens' ? 'rotate-180' : ''}`} />
                 </button>
-                {openSection === 'spectaculumExcellens' && (<div className="py-4"><p className="text-center italic text-gold/70">Il cast di questa serata sarà annunciato prossimamente.</p></div>)}
+                {openSection === 'spectaculumExcellens' && (
+                  <div className="py-4">
+                    <p className="text-center text-lg italic text-gold/90 mb-8">
+                      Nella serata conclusiva, il sipario si apre sull’eccellenza: ecco le protagoniste della serata “Spectaculum Excellens”.
+                    </p>
+                    <Swiper
+                      modules={[Navigation, Pagination]} loop={true} spaceBetween={20} slidesPerView={2} navigation pagination={{ clickable: true }}
+                      breakpoints={{ 640: { slidesPerView: 2, spaceBetween: 20 }, 768: { slidesPerView: 3, spaceBetween: 30 }, 1024: { slidesPerView: 4, spaceBetween: 40 },}}
+                      className="w-full"
+                    >
+                      {terzaSerataImages.map((src, index) => (
+                        <SwiperSlide key={index}>
+                          <button onClick={() => openModal(terzaSerataImages, index)} className="w-full cursor-zoom-in">
+                            <img src={src} alt={`Performer Terza Serata ${index + 1}`} className="w-full h-auto object-cover aspect-[3/4]" />
+                          </button>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                )}
               </div>
 
             </div>
